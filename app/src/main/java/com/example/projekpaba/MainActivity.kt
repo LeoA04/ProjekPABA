@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.rec_view_recommendation_page)
 
         //inisialisasi variabel _rvMarketingAgency
         _rvMarketingAgency = findViewById(R.id.rvMarketingAgency)
