@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activityDetail">
+
+    <!-- Content Above Bottom Navigation -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#000" />
+
+            <!-- Agency Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/ivAgencyLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@android:drawable/btn_star_big_on"
+                    android:contentDescription="Agency Logo" />
+
+                <TextView
+                    android:id="@+id/tvAgencyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NAMA AGENCY"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Agency Location -->
+            <TextView
+                android:id="@+id/tvAgencyLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lOKASI, LOKASI"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:textColor="#555" />
+
+            <!-- About Us -->
+            <TextView
+                android:id="@+id/tvAboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Us:"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/tvIsiAboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Isi tentang kami disini"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000" />
+
+            <!-- Review Section -->
+            <TextView
+                android:id="@+id/tvReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reviews:"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#000" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvReviewDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Raka W.: Timnya profesional dan komunikatif, sangat membantu bisnis saya.\n\nDewi N.: Strategi marketingnya kreatif dan efektif, hasilnya kelihatan!"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#555" />
+
+                    <Button
+                        android:id="@+id/btnSeeAllReviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See All"
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#205E7A"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnCommunication"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Communication"
+                android:textColor="#FFF"
+                android:backgroundTint="#205E7A"/>
+
+<!--            <Button-->
+<!--                android:id="@+id/btnWishlist"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:text="Wishlist"-->
+<!--                android:textColor="#FFF"-->
+<!--                android:backgroundTint="#205E7A"/>-->
+
+            <Button
+                android:id="@+id/btnShoppingCart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Shopping Cart"
+                android:textColor="#FFF"
+                android:backgroundTint="#205E7A"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

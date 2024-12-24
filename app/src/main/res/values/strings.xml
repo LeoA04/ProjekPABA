@@ -52,4 +52,30 @@
         <item>https://pbs.twimg.com/profile_images/1065878330392555520/tsiZsWr7_400x400.jpg</item>
         <item>https://www.hercodigital.id/wp-content/uploads/2021/06/hercodigital.png</item>
     </string-array>
+
+    <string-array name="isiReview">
+        <item>Dimas A.: Layanan agensinya sangat profesional, hasilnya melebihi ekspektasi.</item>
+        <item>Rina T.: Brand saya jadi lebih dikenal setelah dibantu agensi ini. Sukses terus!</item>
+        <item>Wawan S.: Strateginya kreatif dan tepat sasaran, timnya juga ramah banget.</item>
+        <item>Citra L.: Hasil marketingnya efektif, penjualan saya naik drastis!</item>
+        <item>Adi P.: Mereka paham kebutuhan bisnis saya, kolaborasi yang menyenangkan.</item>
+        <item>Lina K.: Timnya detail banget, semua campaign dikelola dengan baik.</item>
+        <item>Reza M.: Sangat puas, hasilnya luar biasa dalam waktu singkat.</item>
+        <item>Maya J.: Ide-idenya fresh dan out of the box, bikin bisnis saya makin menarik.</item>
+        <item>Budi H.: Tim agensi ini sangat responsif dan solutif, kerja sama yang nyaman.</item>
+        <item>Tania S.: Budget terkontrol, hasil maksimal! Highly recommended.</item>
+    </string-array>
+
+    <string-array name="aboutUsMarketingAgency">
+        <item>Bramasta Digital Marketing adalah agensi yang fokus memberikan solusi pemasaran digital inovatif dan efektif untuk membantu bisnis berkembang dan bersaing di era digital.</item>
+        <item>Kalman Marketing Agency menawarkan layanan branding, strategi pemasaran digital, dan periklanan yang dirancang untuk meningkatkan visibilitas dan daya saing bisnis Anda.</item>
+        <item>Digital Nusantara Advertensi mengkhususkan diri dalam menciptakan kampanye pemasaran berbasis data dengan pendekatan kreatif untuk memberikan hasil yang maksimal.</item>
+        <item>Doxa Digital adalah mitra andal yang membantu bisnis Anda menjalani transformasi digital melalui layanan pemasaran yang inovatif dan berorientasi hasil.</item>
+        <item>TopRank Indonesia adalah agensi yang membantu bisnis meraih peringkat teratas dengan layanan SEO, strategi konten, dan kampanye digital yang terintegrasi.</item>
+        <item>Toffee Dev menyediakan layanan digital marketing terlengkap, mulai dari desain web, SEO, hingga manajemen iklan, untuk mendukung pertumbuhan bisnis Anda.</item>
+        <item>Tanya Digital menghadirkan layanan pemasaran digital yang praktis dan efektif, dengan pendekatan berbasis data untuk memberikan hasil yang nyata dan terukur.</item>
+        <item>Krona Digital adalah agensi kreatif yang menawarkan strategi pemasaran unik dan inovatif untuk membantu membangun dan mengembangkan brand Anda.</item>
+        <item>Tomato Digital fokus pada pemasaran berbasis konten dan kampanye media sosial untuk menciptakan hubungan yang kuat antara brand Anda dan audiens.</item>
+        <item>Herco Digital mengutamakan teknologi terkini dan inovasi dalam menciptakan solusi pemasaran digital yang efisien dan berorientasi pada pertumbuhan bisnis.</item>
+    </string-array>
 </resources>

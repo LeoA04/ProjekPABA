@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : RecyclerView
 .Adapter<adapterRecView.ListViewHolder>()  {
@@ -35,6 +36,20 @@ class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : Recy
         holder._namaAgency.setText(agency.nama)
         holder._hargaAgency.setText(agency.harga)
         holder._lokasiAgency.setText(agency.lokasi)
+        Picasso.get()
+            .load(agency.foto)
+            .into(holder._gambarAgency)
+
+        holder._gambarAgency.setOnClickListener {
+            onItemClickCallback.onItemClicked(listAgency[position])
+        }
     }
 
+    private lateinit var onItemClickCallback : OnItemClickCallback
+    interface OnItemClickCallback {
+        fun onItemClicked(data: agencyMarketing)
+    }
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 }
