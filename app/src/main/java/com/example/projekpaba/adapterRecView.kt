@@ -1,5 +1,6 @@
 package com.example.projekpaba
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : Recy
         holder._namaAgency.setText(agency.nama)
         holder._hargaAgency.setText(agency.harga)
         holder._lokasiAgency.setText(agency.lokasi)
+        Log.d("TEST",agency.foto)
         Picasso.get()
             .load(agency.foto)
             .into(holder._gambarAgency)
