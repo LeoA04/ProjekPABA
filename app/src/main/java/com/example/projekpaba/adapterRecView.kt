@@ -37,6 +37,8 @@ class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : Recy
         holder._namaAgency.setText(agency.nama)
         holder._hargaAgency.setText(agency.harga)
         holder._lokasiAgency.setText(agency.lokasi)
+
+        //recycler view untuk gambarnya
         Log.d("TEST",agency.foto)
         Picasso.get()
             .load(agency.foto)
