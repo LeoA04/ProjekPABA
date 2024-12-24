@@ -38,12 +38,11 @@ class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : Recy
         holder._hargaAgency.setText(agency.harga)
         holder._lokasiAgency.setText(agency.lokasi)
 
-        //recycler view untuk gambarnya
-        Log.d("TEST",agency.foto)
+        //recycle buat gambarnya
+        Log.d("TEST", agency.foto)
         Picasso.get()
             .load(agency.foto)
             .into(holder._gambarAgency)
-
         holder._gambarAgency.setOnClickListener {
             onItemClickCallback.onItemClicked(listAgency[position])
         }
