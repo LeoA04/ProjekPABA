@@ -3,6 +3,7 @@ package com.example.projekpaba
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.squareup.picasso.Picasso
 
 class activityDetail : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +27,7 @@ class activityDetail : AppCompatActivity() {
         val btnCommunication= findViewById<Button>(R.id.btnCommunication)
         val btnShoppingCart = findViewById<Button>(R.id.btnShoppingCart)
         val btnSeeAllReviews = findViewById<Button>(R.id.btnSeeAllReviews)
+        val btnBackToRecommend = findViewById<ImageButton>(R.id.btnBackToRecommend)
 
         // button communication
         btnCommunication.setOnClickListener {
@@ -43,6 +46,13 @@ class activityDetail : AppCompatActivity() {
             val intent = Intent(this, Reviews::class.java)
             startActivity(intent)
         }
+
+        // button back to recommendation page
+        btnBackToRecommend.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

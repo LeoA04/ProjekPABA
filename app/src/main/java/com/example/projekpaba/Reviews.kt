@@ -1,15 +1,12 @@
 package com.example.projekpaba
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -27,6 +24,13 @@ class Reviews : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_reviews)
+
+        val btnBackToDetail = findViewById<ImageButton>(R.id.btnBackToDetail)
+
+        // button back to detail page
+        btnBackToDetail.setOnClickListener {
+            finish()
+        }
 
         _rvReviews = findViewById<RecyclerView>(R.id.RvReview)
         SiapkanData()
@@ -57,7 +61,7 @@ class Reviews : AppCompatActivity() {
             arReviews.add(data)
         }
         val json = gson.toJson(arReviews)
-        editor.putString("spReview", json)
+        editor.putString("spReviews", json)
         editor.apply()
     }
 

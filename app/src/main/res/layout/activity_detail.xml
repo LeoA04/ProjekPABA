@@ -8,6 +8,15 @@
     android:padding="16dp"
     tools:context=".activityDetail">
 
+    <ImageButton
+        android:id="@+id/btnBackToRecommend"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_arrow_back_24" />
+
     <!-- Content Above Bottom Navigation -->
     <ScrollView
         android:layout_width="match_parent"
@@ -17,7 +26,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <!-- Title -->
             <TextView
@@ -112,7 +122,7 @@
                         android:id="@+id/tvReviewDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Raka W.: Timnya profesional dan komunikatif, sangat membantu bisnis saya.\n\nDewi N.: Strategi marketingnya kreatif dan efektif, hasilnya kelihatan!"
+                        android:text="★★★★★\nRaka W.: Timnya profesional dan komunikatif, sangat membantu bisnis saya.\n\n★★★★☆\nDewi N.: Strategi marketingnya kreatif dan efektif, hasilnya kelihatan!"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif"
                         android:textColor="#555" />
@@ -121,10 +131,12 @@
                         android:id="@+id/btnSeeAllReviews"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="See All"
+                        android:layout_marginTop="8dp"
                         android:backgroundTint="@color/white"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="8dp" />
+                        android:gravity="start"
+                        android:paddingStart="0dp"
+                        android:text="See All"
+                        android:textColor="@color/black" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -153,16 +165,6 @@
                 android:text="Communication"
                 android:textColor="#FFF"
                 android:backgroundTint="#205E7A"/>
-
-<!--            <Button-->
-<!--                android:id="@+id/btnWishlist"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:text="Wishlist"-->
-<!--                android:textColor="#FFF"-->
-<!--                android:backgroundTint="#205E7A"/>-->
 
             <Button
                 android:id="@+id/btnShoppingCart"

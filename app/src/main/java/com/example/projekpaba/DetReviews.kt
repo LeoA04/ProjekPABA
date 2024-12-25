@@ -18,13 +18,14 @@ class DetReviews : AppCompatActivity() {
 
         val _tvIsiReview = findViewById<TextView>(R.id.tvIsiReview)
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val dataIntent =intent.getParcelableExtra<reviewDetail>("agency", reviewDetail::class.java)
+        val dataIntent =intent.getParcelableExtra<reviewDetail>("kirimData", reviewDetail::class.java)
         if (dataIntent != null) {
             _tvIsiReview.setText(dataIntent.review)
         }
