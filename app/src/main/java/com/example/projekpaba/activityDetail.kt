@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.squareup.picasso.Picasso
 
 class activityDetail : AppCompatActivity() {
@@ -42,7 +44,13 @@ class activityDetail : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("agency", agencyMarketing::class.java)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
         if (dataIntentDetail != null) {
             Picasso.get()
                 .load(dataIntentDetail.foto)
