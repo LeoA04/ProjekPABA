@@ -147,7 +147,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#205E7A"
+        android:background="@drawable/baseline_rectangle_24"
         android:padding="16dp">
 
         <LinearLayout
@@ -164,7 +164,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Communication"
                 android:textColor="#FFF"
-                android:backgroundTint="#205E7A"/>
+                android:backgroundTint="#BECDDA"/>
 
             <Button
                 android:id="@+id/btnShoppingCart"
@@ -173,7 +173,7 @@
                 android:layout_weight="1"
                 android:text="Shopping Cart"
                 android:textColor="#FFF"
-                android:backgroundTint="#205E7A"/>
+                android:backgroundTint="#BECDDA"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
