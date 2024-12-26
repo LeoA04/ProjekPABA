@@ -2,6 +2,7 @@ package com.example.projekpaba
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -14,7 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.squareup.picasso.Picasso
 
 class CommunicationActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communication)
@@ -35,15 +36,24 @@ class CommunicationActivity : AppCompatActivity() {
             insets
         }
 
-        val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
-        if (dataIntentDetail != null) {
+        // Ambil data dari Intent
+        val gambarMarketingAgency = intent.getStringExtra("gambarMarketingAgency")
+        val namaMarketingAgency = intent.getStringExtra("namaMarketingAgency")
+
+        // Tampilkan data ke ImageView dan TextView
+        if (gambarMarketingAgency != null) {
             Picasso.get()
-                .load(dataIntentDetail.foto)
+                .load(gambarMarketingAgency)
                 .into(_ivLogo)
+        }
+        if (gambarMarketingAgency != null) {
             Picasso.get()
-                .load(dataIntentDetail.foto)
+                .load(gambarMarketingAgency)
                 .into(_ivLogoMini)
-            _tvNameAgency.setText(dataIntentDetail.nama)
+        }
+
+        if (namaMarketingAgency != null) {
+            _tvNameAgency.text = namaMarketingAgency
         }
     }
 }

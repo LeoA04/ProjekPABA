@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".CommunicationActivity">
@@ -116,11 +117,6 @@
                         android:textSize="12sp"
                         android:textColor="#888" />
                 </LinearLayout>
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -31,7 +31,12 @@ class activityDetail : AppCompatActivity() {
 
         // button communication
         btnCommunication.setOnClickListener {
+            val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
             val intent = Intent(this, CommunicationActivity::class.java)
+            if (dataIntentDetail != null) {
+                intent.putExtra("gambarMarketingAgency", dataIntentDetail.foto)
+                intent.putExtra("namaMarketingAgency", dataIntentDetail.nama)
+            }
             startActivity(intent)
         }
 
