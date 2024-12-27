@@ -157,7 +157,7 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btnCommunication"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                 android:backgroundTint="#BECDDA"
                 app:srcCompat="@drawable/baseline_chat_24"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btnShoppingCart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
