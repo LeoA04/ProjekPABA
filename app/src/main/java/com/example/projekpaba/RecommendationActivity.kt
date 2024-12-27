@@ -3,9 +3,6 @@ package com.example.projekpaba
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -58,23 +55,6 @@ class RecommendationActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        //button recommendation
-        val btnRecommendation = findViewById<ImageView>(R.id.btnRecommendation)
-        btnRecommendation.setOnClickListener {
-            val intent = Intent(this, RecommendationActivity::class.java)
-            startActivity(intent)
-        }
-
-        //button cart
-        val btnCart = findViewById<ImageView>(R.id.btnCart)
-        btnCart.setOnClickListener {
-            val intent = Intent(this, ShoppingCartActivity::class.java)
-            startActivity(intent)
-        }
-        //button profile
-        //button dashboard
-        //button back
     }
 
     //Fungsi ini berfungsi mengambil data string array yang sudah kita masukkan ke dalam value string.

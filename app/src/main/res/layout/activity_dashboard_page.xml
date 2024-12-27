@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,17 +16,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:paddingBottom="16dp">
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/baseline_circle_24"
-                android:scaleType="centerCrop"
-                android:src="@drawable/baseline_person_24" />
+                android:src="@drawable/ic_profile"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/circle" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -37,89 +38,88 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Welcome back 👋"
-                    android:textColor="#888888"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="#888888" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jessica"
-                    android:textColor="#000000"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/baseline_notifications_24"
-                android:background="#194A7A"/>
+                android:src="@drawable/ic_notif" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:background="@drawable/rounded"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/baseline_search_24" />
+                android:src="@drawable/ic_search"
+            android:layout_marginEnd="8dp" />
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
-                android:background="@null"
                 android:hint="Search"
-                android:padding="8dp"
-                android:textColor="#FFFF"
-                android:textColorHint="#FFFF" />
+                android:background="@null"
+                android:textColor="#000000"
+                android:textColorHint="#888888"
+                android:padding="8dp" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:text="Features"
-            android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:id="@+id/voucher_section"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/rounded"
+                android:layout_marginEnd="8dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/baseline_discount_24" />
+                    android:src="@drawable/ic_discount"
+                android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Vouchers"
-                    android:textColor="#FFFF"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
             </LinearLayout>
 
             <LinearLayout
@@ -127,34 +127,34 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/rounded"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/rounded">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/baseline_history_24" />
+                    android:src="@drawable/ic_history"
+                    android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="History"
-                    android:textColor="#FFFF"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
             </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:text="Recommendation"
-            android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -169,33 +169,33 @@
                 <LinearLayout
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/rounded"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:background="@drawable/rounded"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:layout_marginBottom="8dp"
+                        android:src="@drawable/ic_profile"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_person_24" />
+                        android:layout_marginBottom="8dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
                         android:text="Bramasta Digital Marketing"
-                        android:textColor="#FFFF"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="4dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Surabaya, Indonesia"
-                        android:textColor="#FFFF"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="#888888" />
                 </LinearLayout>
 
             </LinearLayout>
