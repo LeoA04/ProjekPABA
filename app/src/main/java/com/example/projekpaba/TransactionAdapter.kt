@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,8 @@ import com.squareup.picasso.Picasso
 
 class TransactionAdapter(
     private val itemList: ArrayList<agencyMarketing>,
-    private val showQuantity: Boolean = false
+    private val showQuantity: Boolean = false,
+    private val onRemoveItem: (Int) -> Unit
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,8 +21,8 @@ class TransactionAdapter(
         var nameItem = itemView.findViewById<TextView>(R.id.transactionName)
         var priceItem = itemView.findViewById<TextView>(R.id.transactionPrice)
         var quantityItem = itemView.findViewById<TextView>(R.id.quantityText)
-        var minusButton = itemView.findViewById<Button>(R.id.minusButton)
-        var plusButton = itemView.findViewById<Button>(R.id.plusButton)
+        var minusButton = itemView.findViewById<ImageButton>(R.id.minusButton)
+        var plusButton = itemView.findViewById<ImageButton>(R.id.plusButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,6 +53,9 @@ class TransactionAdapter(
                     item.quantity--
                     holder.quantityItem.text = item.quantity.toString()
                     notifyItemChanged(position)
+                }
+                else {
+                    onRemoveItem(position)
                 }
             }
 

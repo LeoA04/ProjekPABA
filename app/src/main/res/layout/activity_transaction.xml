@@ -57,6 +57,8 @@
             android:layout_height="wrap_content"
             android:text="Confirm Order"
             android:textAllCaps="false"
-            android:layout_marginTop="8dp" />
+            android:backgroundTint="#194A7A"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

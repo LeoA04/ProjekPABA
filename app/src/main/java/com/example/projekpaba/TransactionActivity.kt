@@ -37,7 +37,7 @@ class TransactionActivity : AppCompatActivity() {
 
         val btnBackToDetail = findViewById<ImageButton>(R.id.btnBackToDetail)
         btnBackToDetail.setOnClickListener {
-            finish()
+            startActivity(Intent(this, RecommendationActivity::class.java))
         }
 
         val btnConfirmOrder = findViewById<Button>(R.id.btnConfirmOrder)
@@ -48,7 +48,16 @@ class TransactionActivity : AppCompatActivity() {
             startActivity(Intent(this, HistoryActivity::class.java))
         }
 
-        rvTransaction.adapter = TransactionAdapter(transactionList, true)
+        rvTransaction.adapter = TransactionAdapter(transactionList, true) { position ->
+            // hapus item dari daftar
+            transactionList.removeAt(position)
+            rvTransaction.adapter?.notifyItemRemoved(position)
+
+            // simpan daftar transaksi yang diperbarui ke SharedPreferences
+            saveTransactions()
+
+            Toast.makeText(this, "Item berhasil dihapus", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun loadTransactions() {
@@ -94,6 +103,13 @@ class TransactionActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(this, "Data berhasil disimpan ke Firebase", Toast.LENGTH_SHORT)
                         .show()
+
+                    // Hapus semua item dari transactionList setelah sukses
+                    transactionList.clear()
+                    rvTransaction.adapter?.notifyDataSetChanged()
+
+                    // Simpan daftar transaksi kosong ke SharedPreferences
+                    saveTransactions()
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Gagal menyimpan data: ${e.message}", Toast.LENGTH_SHORT)

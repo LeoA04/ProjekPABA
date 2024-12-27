@@ -38,8 +38,15 @@ class activityDetail : AppCompatActivity() {
 
         // Button communication
         btnCommunication.setOnClickListener {
-            val intent = Intent(this, CommunicationActivity::class.java)
-            startActivity(intent)
+            val dataIntentDetail =
+                intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
+
+            if (dataIntentDetail != null) {
+                val intent = Intent(this, CommunicationActivity::class.java)
+                intent.putExtra("gambarMarketingAgency", dataIntentDetail.foto)
+                intent.putExtra("namaMarketingAgency", dataIntentDetail.nama)
+                startActivity(intent)
+            }
         }
 
         // Button see all reviews
@@ -58,7 +65,7 @@ class activityDetail : AppCompatActivity() {
             val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
             if (dataIntentDetail != null) {
                 addToCart(dataIntentDetail)
-                val intent = Intent(this, RecommendationActivity::class.java)
+                val intent = Intent(this, TransactionActivity::class.java)
                 startActivity(intent)
             }
         }
