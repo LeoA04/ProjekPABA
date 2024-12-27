@@ -16,7 +16,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class TransactionActivity : AppCompatActivity() {
-
     private lateinit var sp: SharedPreferences
     private var transactionList = arrayListOf<agencyMarketing>()
     private lateinit var rvTransaction: RecyclerView

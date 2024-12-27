@@ -43,127 +43,144 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="16dp" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="6dp"
-        android:background="#194A7A"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/baseline_rectangle_24"
+        android:backgroundTint="#194A7A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="2dp">
+        app:layout_constraintVertical_bias="1.0">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/btnDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/btnDasboard"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/baseline_home_24" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_home_24"
+                android:layout_marginStart="26dp"
+                app:layout_constraintStart_toStartOf="@id/btnDashboard"
+                app:layout_constraintTop_toTopOf="@id/btnDashboard"
+                app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
+                app:layout_constraintEnd_toEndOf="@id/btnDashboard"
+                android:scaleType="center"/>
 
-                <TextView
-                    android:id="@+id/textDasboard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Dashboard"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="12dp"
+                android:text="Dashboard"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
+                app:layout_constraintEnd_toEndOf="@id/btnDashboard"
+                app:layout_constraintStart_toStartOf="@id/btnDashboard"
+                app:layout_constraintTop_toTopOf="@id/btnDashboard" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
+        </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/btnTransaction"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/baseline_shopping_cart_24" />
+        <FrameLayout
+            android:id="@+id/btnRecommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textCart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Transaction"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_recommend_24"
+                android:layout_marginStart="130dp"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                android:scaleType="center"/>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="95dp"
+                android:text="Recommendation"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
 
-                <ImageView
-                    android:id="@+id/btnRecommendation"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/baseline_recommend_24" />
+        </FrameLayout>
 
-                <TextView
-                    android:id="@+id/textRecommend"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Recommendation"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
-            </LinearLayout>
+        <FrameLayout
+            android:id="@+id/btnTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_shopping_cart_24"
+                android:layout_marginStart="235dp"
+                app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                app:layout_constraintTop_toTopOf="@id/btnTransaction"
+                app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                android:scaleType="center"/>
 
-                <ImageView
-                    android:id="@+id/btnProfile"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/baseline_person_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="215dp"
+                android:text="Transaction"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                app:layout_constraintTop_toTopOf="@id/btnTransaction" />
 
-                <TextView
-                    android:id="@+id/textProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Profile"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="10sp" />
-            </LinearLayout>
+        </FrameLayout>
 
+        <FrameLayout
+            android:id="@+id/btnProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_person_24"
+                android:layout_marginStart="315dp"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                android:scaleType="center"/>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="310dp"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+        </FrameLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
