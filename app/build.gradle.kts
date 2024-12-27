@@ -41,7 +41,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.room.ktx)
-    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.core.ktx)
