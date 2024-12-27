@@ -3,6 +3,7 @@ package com.example.projekpaba
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         val type = object : TypeToken<ArrayList<agencyMarketing>>() {}.type
         if (isiSP != null)
             arAgency = gson.fromJson(isiSP, type)
+
+        val btnCart = findViewById<ImageButton>(R.id.btnCart)
+        btnCart.setOnClickListener {
+            val intent = Intent(this, TransactionActivity::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

@@ -10,4 +10,5 @@ data class agencyMarketing(
     var harga: String,
     var lokasi: String,
     var deskripsi: String,
+    var quantity: Int = 1 // Added quantity field with default value 1
 ) : Parcelable
