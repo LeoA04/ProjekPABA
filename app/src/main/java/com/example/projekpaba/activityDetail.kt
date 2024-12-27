@@ -35,12 +35,6 @@ class activityDetail : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // button shopping cart
-        btnShoppingCart.setOnClickListener {
-            val intent = Intent(this, ShoppingCartActivity::class.java)
-            startActivity(intent)
-        }
-
         // button see all reviews
         btnSeeAllReviews.setOnClickListener {
             val intent = Intent(this, Reviews::class.java)
@@ -49,7 +43,7 @@ class activityDetail : AppCompatActivity() {
 
         // button back to recommendation page
         btnBackToRecommend.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RecommendationActivity::class.java)
             startActivity(intent)
         }
 

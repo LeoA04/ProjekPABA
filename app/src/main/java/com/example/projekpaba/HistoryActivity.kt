@@ -31,7 +31,7 @@ class HistoryActivity : AppCompatActivity() {
             finish()
         }
 
-        rvHistory.adapter = adapterRecView(historyList)
+        rvHistory.adapter = adapterRecViewRecommendation(historyList)
     }
 
     private fun loadHistory() {
