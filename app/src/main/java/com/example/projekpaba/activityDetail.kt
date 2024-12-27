@@ -24,8 +24,8 @@ class activityDetail : AppCompatActivity() {
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
 
-        val btnCommunication= findViewById<Button>(R.id.btnCommunication)
-        val btnShoppingCart = findViewById<Button>(R.id.btnShoppingCart)
+        val btnCommunication= findViewById<ImageButton>(R.id.btnCommunication)
+        val btnShoppingCart = findViewById<ImageButton>(R.id.btnShoppingCart)
         val btnSeeAllReviews = findViewById<Button>(R.id.btnSeeAllReviews)
         val btnBackToRecommend = findViewById<ImageButton>(R.id.btnBackToRecommend)
 
@@ -54,7 +54,7 @@ class activityDetail : AppCompatActivity() {
 
         // button back to recommendation page
         btnBackToRecommend.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RecommendationActivity::class.java)
             startActivity(intent)
         }
 

@@ -3,6 +3,9 @@ package com.example.projekpaba
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class MainActivity : AppCompatActivity() {
+class RecommendationActivity : AppCompatActivity() {
 
     private lateinit var sp: SharedPreferences
 
@@ -55,6 +58,23 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //button recommendation
+        val btnRecommendation = findViewById<ImageView>(R.id.btnRecommendation)
+        btnRecommendation.setOnClickListener {
+            val intent = Intent(this, RecommendationActivity::class.java)
+            startActivity(intent)
+        }
+
+        //button cart
+        val btnCart = findViewById<ImageView>(R.id.btnCart)
+        btnCart.setOnClickListener {
+            val intent = Intent(this, ShoppingCartActivity::class.java)
+            startActivity(intent)
+        }
+        //button profile
+        //button dashboard
+        //button back
     }
 
     //Fungsi ini berfungsi mengambil data string array yang sudah kita masukkan ke dalam value string.
@@ -89,16 +109,16 @@ class MainActivity : AppCompatActivity() {
     //fungsi untuk menampilkan data
     fun TampilData() {
         _rvMarketingAgency.layoutManager = GridLayoutManager(this, 2)
-        _rvMarketingAgency.adapter = adapterRecView(arAgency)
+        _rvMarketingAgency.adapter = adapterRecViewRecommendation(arAgency)
 
-        val adapter_detail = adapterRecView(arAgency)
+        val adapter_detail = adapterRecViewRecommendation(arAgency)
         _rvMarketingAgency.adapter = adapter_detail
 
-        adapter_detail.setOnItemClickCallback(object : adapterRecView.OnItemClickCallback {
+        adapter_detail.setOnItemClickCallback(object : adapterRecViewRecommendation.OnItemClickCallback {
             override fun onItemClicked(data: agencyMarketing) {
-                Toast.makeText(this@MainActivity, data.nama, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RecommendationActivity, data.nama, Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this@MainActivity, activityDetail::class.java)
+                val intent = Intent(this@RecommendationActivity, activityDetail::class.java)
                 intent.putExtra("kirimData", data)
                 startActivity(intent)
             }
