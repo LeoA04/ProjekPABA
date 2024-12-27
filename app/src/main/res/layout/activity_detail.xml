@@ -167,14 +167,13 @@
                 android:backgroundTint="#205E7A"/>
 
             <Button
-                android:id="@+id/btnAddToCart"
+                android:id="@+id/btnShoppingCart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Shopping Cart"
                 android:textColor="#FFF"
                 android:backgroundTint="#205E7A"/>
-
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class adapterRecView (private val listAgency: ArrayList<agencyMarketing>) : RecyclerView
-.Adapter<adapterRecView.ListViewHolder>()  {
+class adapterRecViewRecommendation (private val listAgency: ArrayList<agencyMarketing>) : RecyclerView
+.Adapter<adapterRecViewRecommendation.ListViewHolder>()  {
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _namaAgency = itemView.findViewById<TextView>(R.id.namaMarketingAgency)

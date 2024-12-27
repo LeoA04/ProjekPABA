@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".CommunicationActivity">
@@ -99,28 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginEnd="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bisakah saya book untuk jam 5 sore?"
-                        android:background="#D6EAF8"
-                        android:padding="8dp"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="9:31 am"
-                        android:textSize="12sp"
-                        android:textColor="#888" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:layout_marginEnd="8dp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
