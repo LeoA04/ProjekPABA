@@ -31,9 +31,16 @@ class activityDetail : AppCompatActivity() {
 
         // button communication
         btnCommunication.setOnClickListener {
-            val intent = Intent(this, CommunicationActivity::class.java)
-            startActivity(intent)
+            val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
+
+            if (dataIntentDetail != null) {
+                val intent = Intent(this, CommunicationActivity::class.java)
+                intent.putExtra("gambarMarketingAgency", dataIntentDetail.foto)
+                intent.putExtra("namaMarketingAgency", dataIntentDetail.nama)
+                startActivity(intent)
+            }
         }
+
 
         // button see all reviews
         btnSeeAllReviews.setOnClickListener {
