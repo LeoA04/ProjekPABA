@@ -149,6 +149,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/baseline_rectangle_24"
+        android:backgroundTint="#194A7A"
         android:padding="16dp">
 
         <LinearLayout
@@ -163,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="#BECDDA"
+                android:backgroundTint="#194A7A"
                 app:srcCompat="@drawable/baseline_chat_24"/>
 
             <ImageButton
@@ -172,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/baseline_shopping_cart_24"
-                android:backgroundTint="#BECDDA"/>
+                android:backgroundTint="#194A7A"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
