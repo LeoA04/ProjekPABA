@@ -54,7 +54,7 @@ class activityDetail : AppCompatActivity() {
 
         // button back to recommendation page
         btnBackToRecommend.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RecommendationActivity::class.java)
             startActivity(intent)
         }
 

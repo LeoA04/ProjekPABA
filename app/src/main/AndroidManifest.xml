@@ -27,7 +27,7 @@
             android:name=".CommunicationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".RecommendationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
