@@ -13,9 +13,6 @@ vpic = "2.8"
 parcelize = "2.0.0"
 vgson = "2.11.0"
 vroom = "2.6.1"
-googleGmsGoogleServices = "4.4.2"
-firebaseFirestore = "25.1.1"
-firebaseStorage = "21.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,12 +28,9 @@ gson = {group = "com.google.code.gson", name="gson", version.ref="vgson"}
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "vroom"}
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "vroom"}
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "vroom"}
-firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
-firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcelize"}
-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
