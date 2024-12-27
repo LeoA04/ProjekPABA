@@ -6,12 +6,14 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class HistoryActivity : AppCompatActivity() {
 
     private lateinit var sp: SharedPreferences
+    private lateinit var db: FirebaseFirestore
     private var historyList = arrayListOf<agencyMarketing>()
     private lateinit var rvHistory: RecyclerView
 
@@ -20,11 +22,15 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_history)
 
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
+        db = FirebaseFirestore.getInstance()
         rvHistory = findViewById(R.id.rvHistoryTransactions)
         rvHistory.layoutManager = LinearLayoutManager(this)
 
         // Load history from SharedPreferences
         loadHistory()
+
+        // Load history dari Firebase
+        loadHistoryFromFirebase()
 
         val btnBackToHome = findViewById<ImageButton>(R.id.btnBackToHome)
         btnBackToHome.setOnClickListener {
@@ -41,5 +47,26 @@ class HistoryActivity : AppCompatActivity() {
         if (json != null) {
             historyList = gson.fromJson(json, type)
         }
+    }
+
+    private fun loadHistoryFromFirebase() {
+        db.collection("transactionHistory")
+            .get()
+            .addOnSuccessListener { result ->
+                historyList.clear()
+                for (document in result) {
+                    val item = agencyMarketing(
+
+                        document.getString("foto") ?: "",
+                        document.getString("nama") ?: "",
+                        document.getString("harga") ?: "",
+                        document.getString("lokasi") ?: "",
+                        document.getString("deskripsi") ?: "",
+                        document.getLong("quantity")?.toInt() ?: 1
+                    )
+                    historyList.add(item)
+                }
+                rvHistory.adapter?.notifyDataSetChanged()
+            }
     }
 }
