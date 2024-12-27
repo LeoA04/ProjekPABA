@@ -147,7 +147,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#205E7A"
+        android:background="@drawable/baseline_rectangle_24"
+        android:backgroundTint="#194A7A"
         android:padding="16dp">
 
         <LinearLayout
@@ -156,24 +157,26 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnCommunication"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:text="Communication"
-                android:textColor="#FFF"
-                android:backgroundTint="#205E7A"/>
+                android:src="@drawable/baseline_chat_24"
+                android:backgroundTint="#194A7A"/>
 
-            <Button
-                android:id="@+id/btnShoppingCart"
+            <TextView
+                android:id="@+id/textOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Shopping Cart"
-                android:textColor="#FFF"
-                android:backgroundTint="#205E7A"/>
+                android:text="Order"
+                android:textColor="#FFFF"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:backgroundTint="#194A7A"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

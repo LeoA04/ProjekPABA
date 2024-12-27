@@ -102,7 +102,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/btnCart"
+                    android:id="@+id/btnTransaction"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_gravity="center"
@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Cart"
+                    android:text="Transaction"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="10sp" />

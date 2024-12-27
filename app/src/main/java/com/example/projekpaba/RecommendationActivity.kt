@@ -3,9 +3,13 @@ package com.example.projekpaba
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.ButtonBarLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -50,11 +54,44 @@ class RecommendationActivity : AppCompatActivity() {
         if (isiSP != null)
             arAgency = gson.fromJson(isiSP, type)
 
+        //inisialisasi variabel button
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        val btnDasboard = findViewById<ImageView>(R.id.btnDasboard)
+        val btnRecommendation = findViewById<ImageView>(R.id.btnRecommendation)
+        val btnTransaction = findViewById<ImageView>(R.id.btnTransaction)
+        val btnProfile = findViewById<ImageView>(R.id.btnProfile)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //button back
+        btnBack.setOnClickListener {
+            val intent = Intent(this, dashboardPage::class.java)
+            startActivity(intent)
+        }
+        //button dashboard
+        btnDasboard.setOnClickListener {
+            val intent = Intent(this, dashboardPage::class.java)
+            startActivity(intent)
+        }
+        //button recommendation
+        btnRecommendation.setOnClickListener {
+            val intent = Intent(this, RecommendationActivity::class.java)
+            startActivity(intent)
+        }
+        //button transaksi
+        btnTransaction.setOnClickListener {
+            val intent = Intent(this, TransactionActivity::class.java)
+            startActivity(intent)
+        }
+        //button profile
+//        btnProfile.setOnClickListener{
+//            val intent = Intent(this, profilePage::class.java)
+//            startActivity(intent)
+//        }
     }
 
     //Fungsi ini berfungsi mengambil data string array yang sudah kita masukkan ke dalam value string.

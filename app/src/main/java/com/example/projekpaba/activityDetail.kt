@@ -24,8 +24,8 @@ class activityDetail : AppCompatActivity() {
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
 
-        val btnCommunication= findViewById<Button>(R.id.btnCommunication)
-        val btnShoppingCart = findViewById<Button>(R.id.btnShoppingCart)
+        val btnCommunication= findViewById<ImageButton>(R.id.btnCommunication)
+        val btnOrder = findViewById<TextView>(R.id.textOrder)
         val btnSeeAllReviews = findViewById<Button>(R.id.btnSeeAllReviews)
         val btnBackToRecommend = findViewById<ImageButton>(R.id.btnBackToRecommend)
 
@@ -47,6 +47,11 @@ class activityDetail : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //button order
+        btnOrder.setOnClickListener {
+            val intent = Intent(this, TransactionActivity::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
