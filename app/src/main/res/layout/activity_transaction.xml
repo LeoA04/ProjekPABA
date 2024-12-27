@@ -50,23 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Subtotal -->
-        <TextView
-            android:id="@+id/tvSubtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Subtotal: Rp 0"
-            android:textSize="16sp" />
-
-        <!-- Total -->
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total: Rp 0"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <!-- Confirm Order Button -->
         <Button
             android:id="@+id/btnConfirmOrder"
@@ -76,5 +59,4 @@
             android:textAllCaps="false"
             android:layout_marginTop="8dp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
