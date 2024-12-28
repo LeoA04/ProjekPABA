@@ -21,16 +21,19 @@ class adapterRecViewRecommendation (private val listAgency: ArrayList<agencyMark
         var _btnBack = itemView.findViewById<ImageButton>(R.id.btnBack)
     }
 
+    //fungsi untuk menampilkan data
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.recommendation_page, parent, false)
         return ListViewHolder(view)
     }
 
+    //fungsi untuk mengembalikan jumlah item yang tersedia untuk ditampilkan
     override fun getItemCount(): Int{
         return listAgency.size
     }
 
+    //fungsi untuk menghubungkan data dengan view holder sesuai dengan posisi yang sdh ditentukan di recycle view
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         var agency = listAgency[position]
 
