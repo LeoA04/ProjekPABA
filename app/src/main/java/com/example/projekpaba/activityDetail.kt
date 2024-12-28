@@ -1,5 +1,6 @@
 package com.example.projekpaba
 
+// Import berbagai package yang dibutuhkan
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -15,15 +16,18 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
 
+// Mendefinisikan class activityDetail yang merupakan subclass dari AppCompatActivity
 class activityDetail : AppCompatActivity() {
 
     private lateinit var sp: SharedPreferences
 
+    // Method onCreate dijalankan saat activity pertama kali dibuat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail)
 
+        // Mendapatkan instance SharedPreferences
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
 
         val _ivAgencyLogo = findViewById<ImageView>(R.id.ivAgencyLogo)
@@ -38,9 +42,7 @@ class activityDetail : AppCompatActivity() {
 
         // Button communication
         btnCommunication.setOnClickListener {
-            val dataIntentDetail =
-                intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
-
+            val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
             if (dataIntentDetail != null) {
                 val intent = Intent(this, CommunicationActivity::class.java)
                 intent.putExtra("gambarMarketingAgency", dataIntentDetail.foto)
@@ -70,6 +72,7 @@ class activityDetail : AppCompatActivity() {
             }
         }
 
+        // Mengatur padding untuk window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -87,6 +90,7 @@ class activityDetail : AppCompatActivity() {
         }
     }
 
+    // Method untuk menambahkan item ke cart
     private fun addToCart(item: agencyMarketing) {
         val gson = Gson()
         val json = sp.getString("spTransactions", null)
