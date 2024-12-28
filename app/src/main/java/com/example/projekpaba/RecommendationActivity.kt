@@ -57,10 +57,10 @@ class RecommendationActivity : AppCompatActivity() {
 
         //inisialisasi variabel button
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
-        val btnDasboard = findViewById<FrameLayout>(R.id.btnDashboard)
-        val btnRecommendation = findViewById<FrameLayout>(R.id.btnRecommendation)
-        val btnTransaction = findViewById<FrameLayout>(R.id.btnTransaction)
-        val btnProfile = findViewById<FrameLayout>(R.id.btnProfile)
+        val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
+        val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
+        val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
+        val btnProfile = findViewById<ImageView>(R.id.ivProfile)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

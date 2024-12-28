@@ -64,6 +64,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivDashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_home_24"
@@ -95,6 +96,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivRecommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_recommend_24"
@@ -126,6 +128,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_shopping_cart_24"
@@ -157,6 +160,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_person_24"
