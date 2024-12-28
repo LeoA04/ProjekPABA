@@ -1,5 +1,6 @@
 package com.example.projekpaba
 
+// Import berbagai package yang dibutuhkan
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -15,30 +16,33 @@ import com.google.firebase.firestore.firestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+// Mendefinisikan class TransactionActivity yang merupakan subclass dari AppCompatActivity
 class TransactionActivity : AppCompatActivity() {
     private lateinit var sp: SharedPreferences
     private var transactionList = arrayListOf<agencyMarketing>()
     private lateinit var rvTransaction: RecyclerView
     private val db = Firebase.firestore
 
+    // Method onCreate dijalankan saat activity pertama kali dibuat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction)
 
+        // Mendapatkan instance SharedPreferences
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
         rvTransaction = findViewById(R.id.rvTransactionServices)
         rvTransaction.layoutManager = LinearLayoutManager(this)
 
-//        db = FirebaseFirestore.getInstance()
-
-        // Load transactions from SharedPreferences
+        // Memuat transaksi dari SharedPreferences
         loadTransactions()
 
+        // Mengatur button untuk kembali ke halaman detail
         val btnBackToDetail = findViewById<ImageButton>(R.id.btnBackToDetail)
         btnBackToDetail.setOnClickListener {
             startActivity(Intent(this, RecommendationActivity::class.java))
         }
 
+        // Mengatur button untuk mengonfirmasi pesanan
         val btnConfirmOrder = findViewById<Button>(R.id.btnConfirmOrder)
         btnConfirmOrder.setOnClickListener {
             saveToHistory(db)
@@ -47,18 +51,20 @@ class TransactionActivity : AppCompatActivity() {
             startActivity(Intent(this, HistoryActivity::class.java))
         }
 
+        // Mengatur adapter untuk RecyclerView
         rvTransaction.adapter = TransactionAdapter(transactionList, true) { position ->
-            // hapus item dari daftar
+            // Menghapus item dari daftar transaksi
             transactionList.removeAt(position)
             rvTransaction.adapter?.notifyItemRemoved(position)
 
-            // simpan daftar transaksi yang diperbarui ke SharedPreferences
+            // Menyimpan daftar transaksi yang diperbarui ke SharedPreferences
             saveTransactions()
 
             Toast.makeText(this, "Item berhasil dihapus", Toast.LENGTH_SHORT).show()
         }
     }
 
+    // Method untuk memuat transaksi dari SharedPreferences
     private fun loadTransactions() {
         val gson = Gson()
         val json = sp.getString("spTransactions", null)
@@ -68,12 +74,14 @@ class TransactionActivity : AppCompatActivity() {
         }
     }
 
+    // Method untuk menyimpan transaksi ke SharedPreferences
     private fun saveTransactions() {
         val gson = Gson()
         val json = gson.toJson(transactionList)
         sp.edit().putString("spTransactions", json).apply()
     }
 
+    // Method untuk menyimpan transaksi ke riwayat dan Firebase
     private fun saveToHistory(db : FirebaseFirestore) {
         val gson = Gson()
         val jsonHistory = sp.getString("spHistory", null)
