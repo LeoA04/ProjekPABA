@@ -40,7 +40,7 @@ class dashboardPage : AppCompatActivity() {
         }
         //button transaksi
         btnTransaction.setOnClickListener {
-            val intent = Intent(this, TransactionActivity::class.java)
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
         //button profile
