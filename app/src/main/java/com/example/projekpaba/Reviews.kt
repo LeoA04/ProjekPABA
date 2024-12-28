@@ -74,7 +74,6 @@ class Reviews : AppCompatActivity() {
 
         adapter_review.setOnItemClickCallback(object : adapterReview.OnItemClickCallback {
             override fun onItemClicked(data: reviewDetail) {
-                Toast.makeText(this@Reviews, data.review, Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this@Reviews, DetReviews::class.java)
                 intent.putExtra("kirimData", data)

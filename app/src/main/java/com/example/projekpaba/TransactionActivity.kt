@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +49,12 @@ class TransactionActivity : AppCompatActivity() {
             saveToHistory(db)
             transactionList.clear()
             saveTransactions()
+            startActivity(Intent(this, HistoryActivity::class.java))
+        }
+
+        // history imageview
+        val ivHistory = findViewById<ImageView>(R.id.ivHistory)
+        ivHistory.setOnClickListener {
             startActivity(Intent(this, HistoryActivity::class.java))
         }
 
@@ -108,8 +115,6 @@ class TransactionActivity : AppCompatActivity() {
             db.collection("transactionHistory")
                 .add(transactionMap)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Data berhasil disimpan ke Firebase", Toast.LENGTH_SHORT)
-                        .show()
 
                     // Hapus semua item dari transactionList setelah sukses
                     transactionList.clear()

@@ -134,7 +134,6 @@ class RecommendationActivity : AppCompatActivity() {
 
         adapter_detail.setOnItemClickCallback(object : adapterRecViewRecommendation.OnItemClickCallback {
             override fun onItemClicked(data: agencyMarketing) {
-                Toast.makeText(this@RecommendationActivity, data.nama, Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this@RecommendationActivity, activityDetail::class.java)
                 intent.putExtra("kirimData", data)
