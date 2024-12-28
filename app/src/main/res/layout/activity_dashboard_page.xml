@@ -148,6 +148,7 @@
                 android:background="@drawable/rounded">
 
                 <ImageView
+                    android:id="@+id/ivHistory"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/baseline_history_24"
@@ -292,6 +293,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivDashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="33dp"
@@ -323,6 +325,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivRecommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="140dp"
@@ -354,6 +357,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="245dp"
@@ -385,6 +389,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ivProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="325dp"

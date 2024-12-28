@@ -1,10 +1,8 @@
 package com.example.projekpaba
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
-import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -14,14 +12,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class dashboardPage : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard_page)
 
-        val btnDasboard = findViewById<FrameLayout>(R.id.btnDashboard)
-        val btnRecommendation = findViewById<FrameLayout>(R.id.btnRecommendation)
-        val btnTransaction = findViewById<FrameLayout>(R.id.btnTransaction)
+        val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
+        val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
+        val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -62,7 +61,7 @@ class dashboardPage : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-        val _historySection = findViewById<LinearLayout>(R.id.history_section)
+        val _historySection = findViewById<ImageView>(R.id.ivHistory)
         _historySection.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
