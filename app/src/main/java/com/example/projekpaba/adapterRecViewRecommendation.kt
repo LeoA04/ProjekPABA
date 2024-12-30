@@ -35,23 +35,22 @@ class adapterRecViewRecommendation (private val listAgency: ArrayList<agencyMark
 
     //fungsi untuk menghubungkan data dengan view holder sesuai dengan posisi yang sdh ditentukan di recycle view
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        var agency = listAgency[position]
+        val agency = listAgency[position]
 
-        holder._namaAgency.setText(agency.nama)
-        holder._hargaAgency.setText(agency.harga)
-        holder._lokasiAgency.setText(agency.lokasi)
+        holder._namaAgency.text = agency.nama
+        holder._hargaAgency.text = agency.harga
+        holder._lokasiAgency.text = agency.lokasi
 
-        //recycle buat gambarnya
-        Log.d("TEST", agency.foto)
         Picasso.get()
             .load(agency.foto)
             .into(holder._gambarAgency)
+
         holder._gambarAgency.setOnClickListener {
-            onItemClickCallback.onItemClicked(listAgency[position])
+            onItemClickCallback.onItemClicked(agency) // Kirim seluruh objek agency
         }
     }
 
-    private lateinit var onItemClickCallback : OnItemClickCallback
+    private lateinit var onItemClickCallback: OnItemClickCallback
     interface OnItemClickCallback {
         fun onItemClicked(data: agencyMarketing)
     }

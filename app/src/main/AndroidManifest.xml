@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -16,6 +16,18 @@
         android:theme="@style/Theme.ProjekPABA"
         tools:targetApi="31">
         <activity
+            android:name=".activityLogin"
+            android:exported="false" />
+        <activity
+            android:name=".activityRegister"
+            android:exported="false" />
+        <activity
+            android:name=".dashboardPage"
+            android:exported="false" />
+        <activity
+            android:name=".activityProfile"
+            android:exported="false" />
+        <activity
             android:name=".Reviews"
             android:exported="false" />
         <activity
@@ -28,7 +40,16 @@
             android:name=".RecommendationActivity"
             android:exported="false" />
         <activity
-            android:name=".dashboardPage"
+            android:name=".activityDetail"
+            android:exported="false" />
+        <activity
+            android:name=".TransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,12 +57,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activityDetail" />
-        <activity android:name=".TransactionActivity"
-            android:exported="false"/>
-        <activity android:name=".HistoryActivity"
-            android:exported="false"/>
     </application>
 
 </manifest>

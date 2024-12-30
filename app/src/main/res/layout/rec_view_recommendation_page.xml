@@ -121,6 +121,38 @@
                 app:layout_constraintStart_toStartOf="@id/btnProfile"
                 app:layout_constraintTop_toTopOf="@id/btnProfile" />
 
+            <FrameLayout
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="315dp"
+                    android:scaleType="center"
+                    android:src="@drawable/baseline_person_24"
+                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                    app:layout_constraintStart_toStartOf="@id/btnProfile"
+                    app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="310dp"
+                    android:layout_marginTop="22dp"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                    app:layout_constraintStart_toStartOf="@id/btnProfile"
+                    app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+            </FrameLayout>
+
         </FrameLayout>
 
         <FrameLayout
@@ -155,37 +187,6 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/btnProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_person_24"
-                android:layout_marginStart="315dp"
-                app:layout_constraintStart_toStartOf="@id/btnProfile"
-                app:layout_constraintTop_toTopOf="@id/btnProfile"
-                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                android:scaleType="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginStart="310dp"
-                android:text="Profile"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                app:layout_constraintStart_toStartOf="@id/btnProfile"
-                app:layout_constraintTop_toTopOf="@id/btnProfile" />
-
-        </FrameLayout>
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
@@ -26,6 +27,12 @@ class activityDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail)
+
+        val documentId = intent.getStringExtra("documentId") // Ambil documentId dari Intent
+
+        if (documentId != null) {
+            fetchDetailFromFirestore(documentId) // Panggil fungsi untuk mengambil data dari Firestore
+        }
 
         // Mendapatkan instance SharedPreferences
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
@@ -104,4 +111,40 @@ class activityDetail : AppCompatActivity() {
         transactionList.add(item)
         sp.edit().putString("spTransactions", gson.toJson(transactionList)).apply()
     }
+
+    private fun fetchDetailFromFirestore(documentId: String) {
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("marketingAgency").document(documentId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val agency = agencyMarketing(
+                        foto = document.getString("foto") ?: "",
+                        nama = document.getString("nama") ?: "",
+                        harga = document.getString("harga") ?: "",
+                        lokasi = document.getString("lokasi") ?: "",
+                        deskripsi = document.getString("deskripsi") ?: "",
+                        documentId = document.id
+                    )
+                    displayDetails(agency) // Tampilkan data di UI
+                }
+            }
+    }
+
+    private fun displayDetails(agency: agencyMarketing) {
+        val _ivAgencyLogo = findViewById<ImageView>(R.id.ivAgencyLogo)
+        val _tvAgencyName = findViewById<TextView>(R.id.tvAgencyName)
+        val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
+        val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
+
+        Picasso.get()
+            .load(agency.foto)
+            .into(_ivAgencyLogo)
+
+        _tvAgencyName.text = agency.nama
+        _tvAgencyLocation.text = agency.lokasi
+        _tvAboutUs.text = agency.deskripsi
+    }
+
 }

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:id="@+id/main">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Profile Section -->
+    <LinearLayout
+        android:id="@+id/profile_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/baseline_person_24"
+            android:scaleType="centerCrop"
+            android:background="@drawable/baseline_circle_24" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp" />
+
+        <!-- Edit Profile Button -->
+        <Button
+            android:id="@+id/btnEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT PROFILE"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#194A7A" />
+    </LinearLayout>
+
+    <!-- Options Section -->
+    <LinearLayout
+        android:id="@+id/options_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/profile_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- Help Center -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/baseline_rectangle_24"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#194A7A">
+
+            <ImageView
+                android:id="@+id/icon_help_center"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_help_center_24" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/help_center_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help Center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/help_center_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Find the best answer to your question"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Contact Us -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/baseline_rectangle_24"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#194A7A">
+
+            <ImageView
+                android:id="@+id/icon_contact_us"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_contact_phone_24" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/contact_us_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/contact_us_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get help from our Customer Services"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Log Out -->
+        <LinearLayout
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/baseline_rectangle_24"
+            android:padding="16dp"
+            android:backgroundTint="#194A7A">
+
+            <ImageView
+                android:id="@+id/icon_logout"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_logout_24" />
+
+            <TextView
+                android:id="@+id/logout_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Log Out"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/baseline_rectangle_24"
+        android:backgroundTint="#194A7A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <FrameLayout
+            android:id="@+id/btnDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_home_24"
+                android:layout_marginStart="26dp"
+                app:layout_constraintStart_toStartOf="@id/btnDashboard"
+                app:layout_constraintTop_toTopOf="@id/btnDashboard"
+                app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
+                app:layout_constraintEnd_toEndOf="@id/btnDashboard"
+                android:scaleType="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="12dp"
+                android:text="Dashboard"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
+                app:layout_constraintEnd_toEndOf="@id/btnDashboard"
+                app:layout_constraintStart_toStartOf="@id/btnDashboard"
+                app:layout_constraintTop_toTopOf="@id/btnDashboard" />
+
+            <FrameLayout
+                android:id="@+id/btnRecommendation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivRecommendation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_recommend_24"
+                    android:layout_marginStart="130dp"
+                    app:layout_constraintStart_toStartOf="@id/btnProfile"
+                    app:layout_constraintTop_toTopOf="@id/btnProfile"
+                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                    android:scaleType="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginStart="95dp"
+                    android:text="Recommendation"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                    app:layout_constraintStart_toStartOf="@id/btnProfile"
+                    app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+                <FrameLayout
+                    android:id="@+id/btnProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="315dp"
+                        android:scaleType="center"
+                        android:src="@drawable/baseline_person_24"
+                        app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                        app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                        app:layout_constraintStart_toStartOf="@id/btnProfile"
+                        app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="310dp"
+                        android:layout_marginTop="22dp"
+                        android:text="Profile"
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                        app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                        app:layout_constraintStart_toStartOf="@id/btnProfile"
+                        app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/btnTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivTransaction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_shopping_cart_24"
+                        android:layout_marginStart="235dp"
+                        app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                        app:layout_constraintTop_toTopOf="@id/btnTransaction"
+                        app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                        app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                        android:scaleType="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginStart="215dp"
+                        android:text="Transaction"
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                        app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                        app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                        app:layout_constraintTop_toTopOf="@id/btnTransaction" />
+
+                </FrameLayout>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
