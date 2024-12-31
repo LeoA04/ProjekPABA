@@ -70,7 +70,7 @@ class activityProfile : AppCompatActivity() {
         val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
-            intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("username", username) // Kirim username ke recommendation
             startActivity(intent)
         }
 

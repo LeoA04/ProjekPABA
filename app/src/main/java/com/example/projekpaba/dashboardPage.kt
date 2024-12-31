@@ -44,14 +44,14 @@ class dashboardPage : AppCompatActivity() {
         //button dashboard
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
-            intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("username", username) // Kirim username ke dashboard
             startActivity(intent)
             finish()
         }
         //button recommendation
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
-            intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("username", username) // Kirim username ke recommendation
             startActivity(intent)
             finish()
         }
@@ -67,7 +67,7 @@ class dashboardPage : AppCompatActivity() {
         val btnSeeRecommendation = findViewById<TextView>(R.id.btnSeeRecommendation)
         btnSeeRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
-            intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("username", username) // Kirim username ke recommendation
             startActivity(intent)
             finish()
         }

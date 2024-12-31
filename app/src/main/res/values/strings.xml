@@ -1,58 +1,6 @@
 <resources>
     <string name="app_name">ProjekPABA</string>
 
-    <!--    <string-array name="namaMarketingAgency">-->
-    <!--        <item>Bramasta Digital Marketing</item>-->
-    <!--        <item>Kalman Marketing Agency</item>-->
-    <!--        <item>Digital Nusantara Advertensi</item>-->
-    <!--        <item>Meson Digital Agency</item>-->
-    <!--        <item>TopRank Indonesia</item>-->
-    <!--        <item>Toffee Dev</item>-->
-    <!--        <item>Mediatics Digital </item>-->
-    <!--        <item>Krona Digital</item>-->
-    <!--        <item>Tomato Digital</item>-->
-    <!--        <item>Herco Digital</item>-->
-    <!--    </string-array>-->
-
-    <!--    <string-array name="hargaMarketingAgency">-->
-    <!--        <item>Rp. 800.000</item>-->
-    <!--        <item>Rp. 2.000.000</item>-->
-    <!--        <item>Rp. 4.000.000</item>-->
-    <!--        <item>Rp. 8.000.000</item>-->
-    <!--        <item>Rp. 1.000.000</item>-->
-    <!--        <item>Rp. 4.000.000</item>-->
-    <!--        <item>Rp. 5.000.000</item>-->
-    <!--        <item>Rp. 5.000.000</item>-->
-    <!--        <item>Rp. 3.000.000</item>-->
-    <!--        <item>Rp. 1.000.000</item>-->
-    <!--    </string-array>-->
-
-    <!--    <string-array name="lokasiMarketingAgency">-->
-    <!--        <item>Surabaya, Indonesia</item>-->
-    <!--        <item>Bali, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Banten, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Jakarta, Indonesia</item>-->
-    <!--        <item>Semarang, Indonesia</item>-->
-    <!--    </string-array>-->
-
-    <!--    <string-array name="gambarMarketingAgency">-->
-    <!--        <item>https://www.bramasta.id/wp-content/uploads/Logo-Bramasta-Digital-Marketing-Agency.png</item>-->
-    <!--        <item>https://kalman.id/wp-content/uploads/2023/08/Logo-KALMAN-e1707069966777.png</item>-->
-    <!--        <item>https://www.diginusantara.com/assets/img/ico.png</item>-->
-    <!--        <item>https://rest.techbehemoths.com/storage/images/companies/21418/0a47c70e0bd43401439607d953ef0afa.jpeg</item>-->
-    <!--        <item>https://www.toprankindonesia.com/wp-content/uploads/2022/11/favicon-new-200x200.png</item>-->
-    <!--        <item>https://storage.googleapis.com/msgsndr/CV2crN4Ykmx10RTKizzL/media/65c0944d805e4bd73e2fb6e5.png</item>-->
-    <!--        <item>https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/ad9d303e8273a331bb386baa82d0e289.jpg</item>-->
-    <!--        <item>https://www.krona.co.id/wp-content/uploads/2023/05/logo-krona-icon.png</item>-->
-    <!--        <item>https://pbs.twimg.com/profile_images/1065878330392555520/tsiZsWr7_400x400.jpg</item>-->
-    <!--        <item>https://www.hercodigital.id/wp-content/uploads/2021/06/hercodigital.png</item>-->
-    <!--    </string-array>-->
-
     <string-array name="isiReview">
         <item>★★★★★\nDimas A.: Layanan agensinya sangat profesional, hasilnya melebihi ekspektasi.</item>
         <item>★★★★☆\nRina T.: Brand saya jadi lebih dikenal setelah dibantu agensi ini. Sukses terus!</item>
@@ -65,17 +13,4 @@
         <item>★★★★☆\nBudi H.: Tim agensi ini sangat responsif dan solutif, kerja sama yang nyaman.</item>
         <item>★★★★☆\nTania S.: Budget terkontrol, hasil maksimal! Highly recommended.</item>
     </string-array>
-
-    <!--    <string-array name="aboutUsMarketingAgency">-->
-    <!--        <item>Bramasta Digital Marketing adalah agensi pemasaran digital yang berdedikasi untuk membantu bisnis dari berbagai industri dalam meningkatkan kehadiran mereka di dunia online. Dengan tim ahli berpengalaman, kami selalu berusaha memahami kebutuhan unik klien kami. Layanan yang kami tawarkan meliputi:\n\n- Strategi pemasaran digital\n- Manajemen media sosial\n- Pembuatan konten kreatif\n- Optimasi mesin pencari (SEO)\n- Kampanye iklan berbayar yang terukur</item>-->
-    <!--        <item>Kalman Marketing Agency adalah sebuah agensi pemasaran yang menawarkan solusi menyeluruh untuk kebutuhan pemasaran digital modern. Dengan mengintegrasikan kreativitas, data, dan teknologi, kami membantu klien meningkatkan visibilitas dan membangun hubungan kuat dengan audiens mereka. Layanan kami meliputi:\n\n- Pengelolaan media sosial\n- Kampanye iklan digital\n- Strategi konten\n- Analisis data untuk memahami perilaku audiens</item>-->
-    <!--        <item>Digital Nusantara Advertensi adalah agensi pemasaran digital terkemuka yang berbasis di Indonesia. Kami menggabungkan wawasan lokal dengan teknologi global untuk menciptakan kampanye yang relevan dan berdampak tinggi. Layanan unggulan kami mencakup:\n\n- Branding\n- Pengembangan konten\n- Optimasi mesin pencari (SEO)\n- Pemasaran berbasis performa\n- Analisis data mendalam</item>-->
-    <!--        <item>Meson Digital Agency adalah mitra strategis yang fokus pada hasil dalam dunia pemasaran digital. Dengan pengalaman bertahun-tahun, kami memahami tantangan yang dihadapi oleh bisnis dan menyediakan layanan berikut:\n\n- Perencanaan strategi pemasaran\n- Iklan berbayar (PPC)\n- Pengembangan desain UX/UI\n- Manajemen media sosial\n- Optimasi mesin pencari (SEO)</item>-->
-    <!--        <item>TopRank Indonesia adalah agensi pemasaran digital yang berkomitmen untuk membantu merek mencapai puncak visibilitas online mereka. Dengan pendekatan strategis dan terukur, kami menawarkan layanan seperti:\n\n- Optimasi mesin pencari (SEO)\n- Pemasaran konten\n- Kampanye iklan digital\n- Analisis data untuk memberikan wawasan mendalam</item>-->
-    <!--        <item>Toffee Dev adalah agensi digital yang memadukan kreativitas dengan teknologi canggih. Kami percaya bahwa transformasi digital adalah kunci sukses di era modern. Layanan kami meliputi:\n\n- Pengembangan situs web\n- Aplikasi mobile\n- Pengelolaan iklan digital\n- Optimasi SEO\n- Strategi branding</item>-->
-    <!--        <item>Mediatics Digital mengedepankan analitik dan storytelling untuk menciptakan kampanye pemasaran yang relevan dan berdampak. Dengan fokus pada membangun hubungan yang bermakna, kami menyediakan solusi berikut:\n\n- Analisis data pelanggan\n- Pengembangan strategi konten\n- Manajemen media sosial\n- Periklanan digital</item>-->
-    <!--        <item>Krona Digital adalah agensi pemasaran digital yang menyediakan berbagai layanan inovatif untuk membantu bisnis tumbuh di era digital. Layanan unggulan kami mencakup:\n\n- Pengelolaan media sosial\n- Kampanye iklan\n- Optimasi SEO\n- Pengembangan konten kreatif</item>-->
-    <!--        <item>Tomato Digital adalah agensi kreatif yang fokus pada pengembangan pengalaman digital yang menarik dan berdampak. Dengan pendekatan berbasis desain dan teknologi, layanan kami meliputi:\n\n- Strategi pemasaran digital\n- Pembuatan konten visual\n- Kampanye iklan\n- Desain situs web</item>-->
-    <!--        <item>Herco Digital adalah agensi pemasaran digital yang berkomitmen untuk menghadirkan solusi berbasis performa. Dengan tim yang berpengalaman, kami menyediakan layanan berikut:\n\n- Iklan digital\n- Manajemen media sosial\n- Pengembangan strategi konten\n- Optimasi SEO</item>-->
-    <!--    </string-array>-->
 </resources>

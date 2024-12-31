@@ -37,7 +37,7 @@ class RecommendationActivity : AppCompatActivity() {
         val username = intent.getStringExtra("username")
 
         // Ambil data dari Firestore
-        prepareDataFromFirestore()
+//        prepareDataFromFirestore()
 
         //memanggil fungsi yg sdh dibuat di bawah
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
@@ -47,12 +47,6 @@ class RecommendationActivity : AppCompatActivity() {
 
         // Panggil data dari Firestore
         loadDataFromFirestore()
-
-        val gson = Gson()
-        val isiSP = sp.getString("spAgency", null)
-        val type = object : TypeToken<ArrayList<agencyMarketing>>() {}.type
-        if (isiSP != null)
-            arAgency = gson.fromJson(isiSP, type)
 
         //inisialisasi variabel button
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
