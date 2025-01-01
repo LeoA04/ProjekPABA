@@ -58,7 +58,11 @@ class HistoryActivity : AppCompatActivity() {
 
     // Method untuk memuat riwayat dari Firebase
     private fun loadHistoryFromFirebase() {
+        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val userName = sharedPreferences.getString("username", "Guest") // Ambil username yang login
+
         db.collection("transactionHistory")
+            .whereEqualTo("userName", userName) // Filter berdasarkan username
             .get()
             .addOnSuccessListener { result ->
                 historyList.clear()
