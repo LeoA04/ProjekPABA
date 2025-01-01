@@ -10,17 +10,17 @@
         android:id="@+id/transactionImageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:scaleType="centerCrop"
         android:layout_marginEnd="8dp" />
 
     <!-- Details -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <TextView
-            android:id="@+id/transactionName"
+            android:id="@+id/transactionService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Service Name"
@@ -28,39 +28,25 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/transactionName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company Name"
+            android:textSize="14sp" />
+
+        <TextView
             android:id="@+id/transactionPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price"
             android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/quantityText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity: 1"
-            android:textSize="14sp" />
-
-        <!-- Quantity Controls -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="4dp">
-
-            <ImageButton
-                android:id="@+id/minusButton"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/baseline_exposure_neg_1_24"
-                android:background="@color/black" />
-
-            <ImageButton
-                android:id="@+id/plusButton"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/baseline_exposure_plus_1_24"
-                android:background="@color/black" />
-        </LinearLayout>
     </LinearLayout>
+
+    <!-- Delete Button -->
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_cancel_24"
+        android:background="@android:color/transparent" />
 </LinearLayout>

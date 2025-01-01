@@ -3,6 +3,7 @@ package com.example.projekpaba
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
@@ -33,21 +34,23 @@ class activityDetail : AppCompatActivity() {
             fetchAgencyDetails(documentId)
         }
 
-        fetchServicesForCompany("Tomato Digital")
-
         val _ivAgencyLogo = findViewById<ImageView>(R.id.ivAgencyLogo)
         val _tvAgencyName = findViewById<TextView>(R.id.tvAgencyName)
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
         val btnAddToCart = findViewById<TextView>(R.id.textOrder)
 
-        val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
+        val dataIntentDetail =
+            intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
         if (dataIntentDetail != null) {
             Picasso.get().load(dataIntentDetail.foto).into(_ivAgencyLogo)
             _tvAgencyName.text = dataIntentDetail.nama
             _tvAgencyLocation.text = dataIntentDetail.lokasi
             _tvAboutUs.text = dataIntentDetail.deskripsi
-        }
+
+            // Call fetchServicesForCompany with the company name
+         fetchServicesForCompany(dataIntentDetail.nama)
+    }
 
         btnAddToCart.setOnClickListener {
             if (dataIntentDetail != null) {
@@ -57,23 +60,35 @@ class activityDetail : AppCompatActivity() {
     }
 
     private fun addToCart(item: agencyMarketing) {
-        val gson = Gson()
-        val json = sp.getString("spTransactions", null)
-        val type = object : TypeToken<ArrayList<agencyMarketing>>() {}.type
-        val transactionList: ArrayList<agencyMarketing> = if (json != null) {
-            gson.fromJson(json, type)
-        } else {
-            arrayListOf()
-        }
+        val selectedServiceName = service.selectedItem?.toString()
+        val db = FirebaseFirestore.getInstance()
 
-        transactionList.add(item)
-        sp.edit().putString("spTransactions", gson.toJson(transactionList)).apply()
+        db.collection("service")
+            .whereEqualTo("namaPerusahaan", item.nama)
+            .whereEqualTo("namaService", selectedServiceName)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val selectedServiceData = hashMapOf(
+                    "namaService" to selectedServiceName,
+                    "namaPerusahaan" to item.nama,
+                    "foto" to item.foto
+                )
 
-        val selectedService = service.selectedItem?.toString() ?: ""
-        val intent = Intent(this, TransactionActivity::class.java).apply {
-            putExtra("selectedService", selectedService)
-        }
-        startActivity(intent)
+                // Fetch price dynamically
+                for (document in querySnapshot) {
+                    val price = document.getString("harga") ?: "N/A"
+                    selectedServiceData["harga"] = price
+                }
+
+                // Pass data to TransactionActivity
+                val intent = Intent(this, TransactionActivity::class.java).apply {
+                    putExtra("selectedService", selectedServiceData)
+                }
+                startActivity(intent)
+            }
+            .addOnFailureListener {
+                Log.e("FetchServiceError", "Error fetching service details: ${it.message}")
+            }
     }
 
     private fun fetchAgencyDetails(documentId: String) {
@@ -100,20 +115,27 @@ class activityDetail : AppCompatActivity() {
         _tvAboutUs.text = deskripsi
     }
 
-    private fun fetchServicesForCompany(companyName: String) {
+    private fun fetchServicesForCompany(namaPerusahaan: String) {
         val db = FirebaseFirestore.getInstance()
         db.collection("service")
-            .whereEqualTo("namaPerusahaan", companyName)
+            .whereEqualTo("namaPerusahaan", namaPerusahaan)
             .get()
             .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.isEmpty) {
+                    Log.w("ServiceQuery", "No services found for $namaPerusahaan")
+                }
                 val services = mutableListOf<String>()
                 for (document in querySnapshot) {
                     val serviceName = document.getString("namaService")
                     if (serviceName != null) {
                         services.add(serviceName)
+                        Log.d("ServiceQuery", "Service: $serviceName for $namaPerusahaan")
                     }
                 }
                 populateSpinner(services)
+            }
+            .addOnFailureListener { e ->
+                Log.e("ServiceQueryError", "Error fetching services: ${e.message}")
             }
     }
 

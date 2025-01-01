@@ -10,18 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class TransactionAdapter(
-    private val itemList: ArrayList<agencyMarketing>,
-    private val showQuantity: Boolean = false,
-    private val onRemoveItem: (Int) -> Unit
+    private val selectedService: HashMap<String, String>, // Only one selected service
+    private val onRemoveItem: () -> Unit // Callback for delete action
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imgItem: ImageView = itemView.findViewById(R.id.transactionImageView)
-        var nameItem: TextView = itemView.findViewById(R.id.transactionName)
-        var priceItem: TextView = itemView.findViewById(R.id.transactionPrice)
-        var quantityItem: TextView = itemView.findViewById(R.id.quantityText)
-        var minusButton: ImageButton = itemView.findViewById(R.id.minusButton)
-        var plusButton: ImageButton = itemView.findViewById(R.id.plusButton)
+        val imgService: ImageView = itemView.findViewById(R.id.transactionImageView)
+        val serviceName: TextView = itemView.findViewById(R.id.transactionService)
+        val companyName: TextView = itemView.findViewById(R.id.transactionName)
+        val servicePrice: TextView = itemView.findViewById(R.id.transactionPrice)
+        val deleteButton: ImageButton = itemView.findViewById(R.id.deleteButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,43 +28,18 @@ class TransactionAdapter(
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = itemList.size
+    override fun getItemCount(): Int = 1 // Only one item, as it's the selected service
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = itemList[position]
-
         // Set data to views
-        Picasso.get().load(item.foto).into(holder.imgItem)
-        holder.nameItem.text = item.nama
-        holder.priceItem.text = item.harga
-        holder.quantityItem.text = "Quantity: ${item.quantity}"
+        holder.serviceName.text = selectedService["namaService"]
+        holder.companyName.text = selectedService["namaPerusahaan"]
+        holder.servicePrice.text = "Price: ${selectedService["harga"]}"
+        Picasso.get().load(selectedService["foto"]).into(holder.imgService)
 
-        if (showQuantity) {
-            holder.quantityItem.visibility = View.VISIBLE
-            holder.minusButton.visibility = View.VISIBLE
-            holder.plusButton.visibility = View.VISIBLE
-
-            // Minus button action
-            holder.minusButton.setOnClickListener {
-                if (item.quantity > 1) {
-                    item.quantity--
-                    holder.quantityItem.text = "Quantity: ${item.quantity}"
-                    notifyItemChanged(position)
-                } else {
-                    onRemoveItem(position)
-                }
-            }
-
-            // Plus button action
-            holder.plusButton.setOnClickListener {
-                item.quantity++
-                holder.quantityItem.text = "Quantity: ${item.quantity}"
-                notifyItemChanged(position)
-            }
-        } else {
-            holder.quantityItem.visibility = View.GONE
-            holder.minusButton.visibility = View.GONE
-            holder.plusButton.visibility = View.GONE
+        // Delete button action
+        holder.deleteButton.setOnClickListener {
+            onRemoveItem() // Trigger callback for deletion
         }
     }
 }
