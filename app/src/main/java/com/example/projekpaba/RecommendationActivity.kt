@@ -36,14 +36,8 @@ class RecommendationActivity : AppCompatActivity() {
         // Ambil username dari intent
         val username = intent.getStringExtra("username")
 
-        // Ambil data dari Firestore
-//        prepareDataFromFirestore()
-
         //memanggil fungsi yg sdh dibuat di bawah
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
-
-        // Periksa apakah data sudah diunggah
-//        uploadDataToFirestore()
 
         // Panggil data dari Firestore
         loadDataFromFirestore()
@@ -96,28 +90,6 @@ class RecommendationActivity : AppCompatActivity() {
         }
     }
 
-    private fun prepareDataFromFirestore() {
-        val db = FirebaseFirestore.getInstance()
-        arAgency.clear()
-
-        db.collection("marketingAgency")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val agency = agencyMarketing(
-                        foto = document.getString("foto") ?: "",
-                        nama = document.getString("nama") ?: "",
-                        harga = document.getString("harga") ?: "",
-                        lokasi = document.getString("lokasi") ?: "",
-                        deskripsi = document.getString("deskripsi") ?: ""
-                    )
-                    arAgency.add(agency)
-                }
-
-                TampilData()
-            }
-    }
-
     private fun loadDataFromFirestore() {
         val db = FirebaseFirestore.getInstance()
         arAgency.clear() // Kosongkan daftar sebelum menambahkan data baru
@@ -155,27 +127,4 @@ class RecommendationActivity : AppCompatActivity() {
             }
         })
     }
-
-//    private fun uploadDataToFirestore() {
-//        val db = FirebaseFirestore.getInstance()
-//
-//        val namaMarketingAgency = resources.getStringArray(R.array.namaMarketingAgency)
-//        val hargaMarketingAgency = resources.getStringArray(R.array.hargaMarketingAgency)
-//        val lokasiMarketingAgency = resources.getStringArray(R.array.lokasiMarketingAgency)
-//        val gambarMarketingAgency = resources.getStringArray(R.array.gambarMarketingAgency)
-//        val aboutUsMarketingAgency = resources.getStringArray(R.array.aboutUsMarketingAgency)
-//
-//        for (i in namaMarketingAgency.indices) {
-//            val agency = agencyMarketing(
-//                foto = gambarMarketingAgency[i],
-//                nama = namaMarketingAgency[i],
-//                harga = hargaMarketingAgency[i],
-//                lokasi = lokasiMarketingAgency[i],
-//                deskripsi = aboutUsMarketingAgency[i]
-//            )
-//
-//            db.collection("marketingAgency")
-//                .add(agency)
-//        }
-//    }
 }

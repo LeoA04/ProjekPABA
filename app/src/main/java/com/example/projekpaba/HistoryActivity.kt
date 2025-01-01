@@ -69,7 +69,6 @@ class HistoryActivity : AppCompatActivity() {
                         document.getString("harga") ?: "",
                         document.getString("lokasi") ?: "",
                         document.getString("deskripsi") ?: "",
-                        document.getLong("quantity")?.toInt() ?: 1
                     )
                     historyList.add(item)
                 }

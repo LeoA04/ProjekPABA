@@ -28,12 +28,6 @@ class activityDetail : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail)
 
-        val documentId = intent.getStringExtra("documentId") // Ambil documentId dari Intent
-
-        if (documentId != null) {
-            fetchDetailFromFirestore(documentId) // Panggil fungsi untuk mengambil data dari Firestore
-        }
-
         // Mendapatkan instance SharedPreferences
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
 
@@ -112,39 +106,20 @@ class activityDetail : AppCompatActivity() {
         sp.edit().putString("spTransactions", gson.toJson(transactionList)).apply()
     }
 
-    private fun fetchDetailFromFirestore(documentId: String) {
-        val db = FirebaseFirestore.getInstance()
-
-        db.collection("marketingAgency").document(documentId)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document.exists()) {
-                    val agency = agencyMarketing(
-                        foto = document.getString("foto") ?: "",
-                        nama = document.getString("nama") ?: "",
-                        harga = document.getString("harga") ?: "",
-                        lokasi = document.getString("lokasi") ?: "",
-                        deskripsi = document.getString("deskripsi") ?: "",
-                        documentId = document.id
-                    )
-                    displayDetails(agency) // Tampilkan data di UI
-                }
-            }
-    }
-
-    private fun displayDetails(agency: agencyMarketing) {
+    private fun displayAgencyDetails(foto: String, nama: String, lokasi: String, deskripsi: String) {
         val _ivAgencyLogo = findViewById<ImageView>(R.id.ivAgencyLogo)
         val _tvAgencyName = findViewById<TextView>(R.id.tvAgencyName)
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
 
-        Picasso.get()
-            .load(agency.foto)
-            .into(_ivAgencyLogo)
+        // Gunakan Picasso untuk memuat gambar dari URL
+        if (foto.isNotEmpty()) {
+            Picasso.get().load(foto).into(_ivAgencyLogo)
+        }
 
-        _tvAgencyName.text = agency.nama
-        _tvAgencyLocation.text = agency.lokasi
-        _tvAboutUs.text = agency.deskripsi
+        // Set nilai ke TextView
+        _tvAgencyName.text = nama
+        _tvAgencyLocation.text = lokasi
+        _tvAboutUs.text = deskripsi
     }
-
 }

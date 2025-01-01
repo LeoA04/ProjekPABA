@@ -17,7 +17,7 @@ class DetReviews : AppCompatActivity() {
         setContentView(R.layout.activity_det_reviews)
 
         val _tvIsiReview = findViewById<TextView>(R.id.tvIsiReview)
-
+        val _tvRating = findViewById<TextView>(R.id.tvRating)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -25,9 +25,10 @@ class DetReviews : AppCompatActivity() {
             insets
         }
 
-        val dataIntent =intent.getParcelableExtra<reviewDetail>("kirimData", reviewDetail::class.java)
+        val dataIntent = intent.getParcelableExtra<reviewDetail>("kirimData", reviewDetail::class.java)
         if (dataIntent != null) {
-            _tvIsiReview.setText(dataIntent.review)
+            _tvIsiReview.text = dataIntent.reviewText
+            _tvRating.text = dataIntent.rating
         }
     }
 }

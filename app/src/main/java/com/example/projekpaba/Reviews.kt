@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -32,38 +33,50 @@ class Reviews : AppCompatActivity() {
             finish()
         }
 
-        _rvReviews = findViewById<RecyclerView>(R.id.RvReview)
-        SiapkanData()
+        _rvReviews = findViewById(R.id.RvReview)
+        fetchDataFromFirestore()
 
-        sp = getSharedPreferences("dataSP", MODE_PRIVATE)
-        TambahData()
-        TampilData()
-
-        val gson = Gson()
-        val isiSP = sp.getString("spReviews", null)
-        val type = object : TypeToken<ArrayList<reviewDetail>>() {}.type
-        if (isiSP != null)
-            arReviews = gson.fromJson(isiSP, type)
+//        sp = getSharedPreferences("dataSP", MODE_PRIVATE)
+//        TambahData()
+//        TampilData()
+//
+//        val gson = Gson()
+//        val isiSP = sp.getString("spReviews", null)
+//        val type = object : TypeToken<ArrayList<reviewDetail>>() {}.type
+//        if (isiSP != null)
+//            arReviews = gson.fromJson(isiSP, type)
     }
 
-    fun SiapkanData() {
-        _reviews = resources.getStringArray(R.array.isiReview).toMutableList()
+    private fun fetchDataFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("reviews")
+            .get()
+            .addOnSuccessListener { result ->
+                arReviews.clear()
+                for (document in result) {
+                    val reviewText = document.getString("review") ?: "No Review"
+                    val rating = document.getString("rating") ?: "No Rating"
+                    val review = reviewDetail(reviewText, rating)
+                    arReviews.add(review)
+                }
+                TampilData()
+            }
     }
 
-    fun TambahData() {
-        val gson = Gson()
-        val editor = sp.edit()
-        arReviews.clear()
-        for (position in _reviews.indices) {
-            val data = reviewDetail(
-                _reviews[position]
-            )
-            arReviews.add(data)
-        }
-        val json = gson.toJson(arReviews)
-        editor.putString("spReviews", json)
-        editor.apply()
-    }
+//    fun TambahData() {
+//        val gson = Gson()
+//        val editor = sp.edit()
+//        arReviews.clear()
+//        for (position in _reviews.indices) {
+//            val data = reviewDetail(
+//                _reviews[position]
+//            )
+//            arReviews.add(data)
+//        }
+//        val json = gson.toJson(arReviews)
+//        editor.putString("spReviews", json)
+//        editor.apply()
+//    }
 
     fun TampilData() {
         _rvReviews.layoutManager = LinearLayoutManager(this)

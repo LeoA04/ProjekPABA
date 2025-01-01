@@ -13,6 +13,7 @@ class adapterReview (private val listReview: ArrayList<reviewDetail>) : Recycler
     // Mendefinisikan ViewHolder yang akan menampung view dari item
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _isiReview = itemView.findViewById<TextView>(R.id.tvIsiReview)
+        val _tvRating: TextView = itemView.findViewById(R.id.tvRating)
     }
 
     // Method untuk membuat ViewHolder dan meng-inflate layout item
@@ -32,7 +33,11 @@ class adapterReview (private val listReview: ArrayList<reviewDetail>) : Recycler
         val review = listReview[position]
 
         // Mengatur teks untuk TextView berdasarkan data review
-        holder._isiReview.setText(review.review)
+        holder._isiReview.text = review.reviewText
+        holder._tvRating.text = review.rating
+        holder.itemView.setOnClickListener {
+            onItemClickCallback?.onItemClicked(review)
+        }
     }
 
     // Deklarasi interface untuk menangani klik item

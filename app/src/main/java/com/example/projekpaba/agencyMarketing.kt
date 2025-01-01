@@ -10,6 +10,5 @@ data class agencyMarketing(
     var harga: String,
     var lokasi: String,
     var deskripsi: String,
-    var quantity: Int = 1,
-    val documentId: String? = null
+    var quantity: Int = 1
 ) : Parcelable

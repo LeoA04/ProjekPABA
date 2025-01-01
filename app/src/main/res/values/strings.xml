@@ -1,16 +1,3 @@
 <resources>
     <string name="app_name">ProjekPABA</string>
-
-    <string-array name="isiReview">
-        <item>★★★★★\nDimas A.: Layanan agensinya sangat profesional, hasilnya melebihi ekspektasi.</item>
-        <item>★★★★☆\nRina T.: Brand saya jadi lebih dikenal setelah dibantu agensi ini. Sukses terus!</item>
-        <item>★★★★★\nWawan S.: Strateginya kreatif dan tepat sasaran, timnya juga ramah banget.</item>
-        <item>★★★★☆\nCitra L.: Hasil marketingnya efektif, penjualan saya naik drastis!</item>
-        <item>★★★★★\nAdi P.: Mereka paham kebutuhan bisnis saya, kolaborasi yang menyenangkan.</item>
-        <item>★★★★☆\nLina K.: Timnya detail banget, semua campaign dikelola dengan baik.</item>
-        <item>★★★★☆\nReza M.: Sangat puas, hasilnya luar biasa dalam waktu singkat.</item>
-        <item>★★★☆☆\nMaya J.: Ide-idenya fresh dan out of the box, bikin bisnis saya makin menarik.</item>
-        <item>★★★★☆\nBudi H.: Tim agensi ini sangat responsif dan solutif, kerja sama yang nyaman.</item>
-        <item>★★★★☆\nTania S.: Budget terkontrol, hasil maksimal! Highly recommended.</item>
-    </string-array>
 </resources>
