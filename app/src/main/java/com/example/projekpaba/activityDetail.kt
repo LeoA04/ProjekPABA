@@ -31,6 +31,12 @@ class activityDetail : AppCompatActivity() {
         // Mendapatkan instance SharedPreferences
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
 
+        val documentId = intent.getStringExtra("kirimData")
+
+        if (documentId != null) {
+            fetchAgencyDetails(documentId) // Ambil data dari Firestore
+        }
+
         val _ivAgencyLogo = findViewById<ImageView>(R.id.ivAgencyLogo)
         val _tvAgencyName = findViewById<TextView>(R.id.tvAgencyName)
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
@@ -104,6 +110,24 @@ class activityDetail : AppCompatActivity() {
 
         transactionList.add(item)
         sp.edit().putString("spTransactions", gson.toJson(transactionList)).apply()
+    }
+
+    private fun fetchAgencyDetails(documentId: String) {
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("marketingAgency").document(documentId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val foto = document.getString("foto") ?: ""
+                    val nama = document.getString("nama") ?: ""
+                    val lokasi = document.getString("lokasi") ?: ""
+                    val deskripsi = document.getString("deskripsi") ?: ""
+
+                    // Tampilkan data di UI
+                    displayAgencyDetails(foto, nama, lokasi, deskripsi)
+                }
+            }
     }
 
     private fun displayAgencyDetails(foto: String, nama: String, lokasi: String, deskripsi: String) {
