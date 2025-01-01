@@ -34,13 +34,18 @@ class TransactionActivity : AppCompatActivity() {
         rvTransaction = findViewById(R.id.rvTransactionServices)
         rvTransaction.layoutManager = LinearLayoutManager(this)
 
+        // Ambil username dari intent
+        val username = intent.getStringExtra("username")
+
         // Memuat transaksi dari SharedPreferences
         loadTransactions()
 
         // Mengatur button untuk kembali ke halaman detail
         val btnBackToDetail = findViewById<ImageButton>(R.id.btnBackToDetail)
         btnBackToDetail.setOnClickListener {
-            startActivity(Intent(this, RecommendationActivity::class.java))
+            val intent = Intent(this, RecommendationActivity::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
         }
 
         // Mengatur button untuk mengonfirmasi pesanan
@@ -102,9 +107,14 @@ class TransactionActivity : AppCompatActivity() {
         historyList.addAll(transactionList)
         sp.edit().putString("spHistory", gson.toJson(historyList)).apply()
 
+        // Ambil username dari SharedPreferences
+        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val userName = sharedPreferences.getString("username", "Guest")
+
         // Simpan data ke Firebase
         for (transaction in transactionList) {
             val transactionMap = hashMapOf(
+                "userName" to userName,
                 "foto" to transaction.foto,
                 "nama" to transaction.nama,
                 "harga" to transaction.harga,
