@@ -97,6 +97,19 @@
                 android:fontFamily="sans-serif"
                 android:textColor="#000" />
 
+            <!-- Service Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Select Service:" />
+
+            <Spinner
+                android:id="@+id/spinnerServices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
             <!-- Review Section -->
             <TextView
                 android:id="@+id/tvReviews"
