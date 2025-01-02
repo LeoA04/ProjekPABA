@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -65,6 +66,36 @@ class TransactionActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             saveToHistory()
+        }
+        //button dashboard
+        val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
+        btnDasboard.setOnClickListener {
+            val intent = Intent(this, dashboardPage::class.java)
+            intent.putExtra("username", username) // Kirim username ke dashboard
+            startActivity(intent)
+        }
+
+        //button recommendation
+        val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
+        btnRecommendation.setOnClickListener {
+            val intent = Intent(this, RecommendationActivity::class.java)
+            intent.putExtra("username", username) // Kirim username ke recommendation
+            startActivity(intent)
+        }
+
+        //button transaksi
+        val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
+        btnTransaction.setOnClickListener {
+            val intent = Intent(this, TransactionActivity::class.java)
+            startActivity(intent)
+        }
+        //button profile
+        val btnProfile = findViewById<ImageView>(R.id.ivProfileBawah)
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, activityProfile::class.java)
+            intent.putExtra("username", username) // Kirim username ke profil
+            startActivity(intent)
+            finish()
         }
     }
 

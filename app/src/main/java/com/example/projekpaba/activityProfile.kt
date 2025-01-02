@@ -95,5 +95,14 @@ class activityProfile : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        //button ke history transaksi
+        val _historySection = findViewById<ImageView>(R.id.IvHistory)
+        _historySection.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            intent.putExtra("username", username) // Kirim username ke transaksi
+            startActivity(intent)
+            finish()
+        }
     }
 }
