@@ -42,7 +42,6 @@ class adapterRecViewDashboard(
         holder.tvAgencyLocation.text = agency["lokasi"]
         Picasso.get().load(agency["foto"]).into(holder.ivAgencyImage)
 
-        // Set click listener
         holder.itemView.setOnClickListener {
             onItemClickCallback?.onItemClicked(agency)
         }

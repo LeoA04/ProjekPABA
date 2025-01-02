@@ -113,7 +113,7 @@ class dashboardPage : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         db.collection("marketingAgency")
-            .limit(3) // Limit to 3 recommendations
+            .limit(3) // limit tampilkan 3 agency
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -132,13 +132,13 @@ class dashboardPage : AppCompatActivity() {
                 // Set click callback
                 adapter.setOnItemClickCallback(object : adapterRecViewDashboard.OnItemClickCallback {
                     override fun onItemClicked(data: HashMap<String, String>) {
-                        // Convert to agencyMarketing object and send it to activityDetail
+                        // konversi ke objek agencyMarketing dan kirim ke ActivityDetail
                         val agencyMarketingData = agencyMarketing(
                             foto = data["foto"] ?: "",
                             nama = data["nama"] ?: "",
                             lokasi = data["lokasi"] ?: "",
                             deskripsi = data["deskripsi"] ?: "",
-                            harga = "" // Tambahkan harga kosong jika tidak diperlukan
+                            harga = ""
                         )
                         val intent = Intent(this@dashboardPage, activityDetail::class.java)
                         intent.putExtra("kirimData", agencyMarketingData)

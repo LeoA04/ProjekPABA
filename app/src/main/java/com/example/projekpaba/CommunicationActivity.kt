@@ -1,17 +1,12 @@
 package com.example.projekpaba
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import com.squareup.picasso.Picasso
 
 class CommunicationActivity : AppCompatActivity() {

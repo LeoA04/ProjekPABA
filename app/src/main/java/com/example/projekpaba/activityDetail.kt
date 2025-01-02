@@ -12,8 +12,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
 
 class activityDetail : AppCompatActivity() {
@@ -73,7 +71,7 @@ class activityDetail : AppCompatActivity() {
             _tvAgencyLocation.text = dataIntentDetail.lokasi
             _tvAboutUs.text = dataIntentDetail.deskripsi
 
-            // Call fetchServicesForCompany with the company name
+            // Call fetchServicesForCompany dengan nama agency
          fetchServicesForCompany(dataIntentDetail.nama)
     }
 
@@ -99,13 +97,13 @@ class activityDetail : AppCompatActivity() {
                     "foto" to item.foto
                 )
 
-                // Fetch price dynamically
+                // fetch harga
                 for (document in querySnapshot) {
                     val price = document.getString("harga") ?: "N/A"
                     selectedServiceData["harga"] = price
                 }
 
-                // Pass data to TransactionActivity
+                // menyalurkan data ke transaction activity
                 val intent = Intent(this, TransactionActivity::class.java).apply {
                     putExtra("selectedService", selectedServiceData)
                 }
@@ -152,9 +150,9 @@ class activityDetail : AppCompatActivity() {
                 val services = mutableListOf<String>()
                 for (document in querySnapshot) {
                     val serviceName = document.getString("namaService")
+                    val servicePrice = document.getString("harga")
                     if (serviceName != null) {
-                        services.add(serviceName)
-                        Log.d("ServiceQuery", "Service: $serviceName for $namaPerusahaan")
+                        services.add("$serviceName - Rp. $servicePrice")
                     }
                 }
                 populateSpinner(services)

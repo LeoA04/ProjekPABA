@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class TransactionAdapter(
-    private val selectedServices: MutableList<HashMap<String, String>>, // List of services
-    private val onRemoveItem: (Int) -> Unit // Callback for delete action with position
+    private val selectedServices: MutableList<HashMap<String, String>>, // list jasa
+    private val onRemoveItem: (Int) -> Unit // Callback untuk menghapus item
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,9 +37,9 @@ class TransactionAdapter(
         holder.servicePrice.text = "Price: ${service["harga"]}"
         Picasso.get().load(service["foto"]).into(holder.imgService)
 
-        // Delete button action
+        // delete button
         holder.deleteButton.setOnClickListener {
-            onRemoveItem(position) // Trigger callback with position
+            onRemoveItem(position)
         }
     }
 }

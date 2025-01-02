@@ -15,7 +15,7 @@ import com.google.gson.reflect.TypeToken
 class TransactionActivity : AppCompatActivity() {
 
     private lateinit var rvTransaction: RecyclerView
-    private val selectedServices = mutableListOf<HashMap<String, String>>() // List to hold multiple services
+    private val selectedServices = mutableListOf<HashMap<String, String>>() // list bisa memilih lebih dari 1
     private lateinit var adapter: TransactionAdapter
     private val db = FirebaseFirestore.getInstance()
     private var username: String = "Guest"
@@ -27,31 +27,30 @@ class TransactionActivity : AppCompatActivity() {
         rvTransaction = findViewById(R.id.rvTransactionServices)
         rvTransaction.layoutManager = LinearLayoutManager(this)
 
-        // Get username from intent or preferences
+        // ambil username dari intent
         username = intent.getStringExtra("username") ?: getUsernameFromPreferences()
 
-        // Load cart data for the current user
+        // load cart
         loadCartData()
 
-        // Get new service data from intent and add it to the cart
         val serviceData = intent.getSerializableExtra("selectedService") as? HashMap<String, String>
         if (serviceData != null) {
             selectedServices.add(serviceData)
-            saveCartData() // Save updated cart
+            saveCartData() // simpan ke cart
         }
 
-        // Set up adapter
+        // adapter
         adapter = TransactionAdapter(selectedServices) { position ->
-            // Handle item removal
+            // handle hapus jasa
             selectedServices.removeAt(position)
-            saveCartData() // Save updated cart
+            saveCartData() // simpan update terbaru
             adapter.notifyDataSetChanged()
             Toast.makeText(this, "Service removed", Toast.LENGTH_SHORT).show()
         }
 
         rvTransaction.adapter = adapter
 
-        // Button to return to the recommendation page
+        // btn kemabli ke recommendation
         val btnBackToDetail = findViewById<ImageButton>(R.id.btnBackToDetail)
         btnBackToDetail.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
@@ -59,7 +58,7 @@ class TransactionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Confirm order button functionality
+        // confirm order
         findViewById<Button>(R.id.btnConfirmOrder).setOnClickListener {
             if (selectedServices.isEmpty()) {
                 Toast.makeText(this, "No services selected to confirm.", Toast.LENGTH_SHORT).show()
@@ -89,12 +88,12 @@ class TransactionActivity : AppCompatActivity() {
                 }
         }
 
-        // Clear cart after confirmation
+        // bersihkan cart setelah konfirmasi
         selectedServices.clear()
         saveCartData()
         adapter.notifyDataSetChanged()
 
-        // Navigate to history after confirming all orders
+        // ke history setelah order
         val intent = Intent(this, HistoryActivity::class.java)
         intent.putExtra("username", username)
         startActivity(intent)
@@ -105,14 +104,14 @@ class TransactionActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = gson.toJson(selectedServices)
-        editor.putString("cart_$username", json) // Associate cart with username
+        editor.putString("cart_$username", json) // hubungkan cart dengan username
         editor.apply()
     }
 
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("cart_$username", null) // Load cart for username
+        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {

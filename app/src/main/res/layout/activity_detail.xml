@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -101,8 +102,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Select Service:" />
+                android:layout_marginTop="16dp"
+                android:text="Select Service:"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#000" />
 
             <Spinner
                 android:id="@+id/spinnerServices"
@@ -124,7 +128,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -137,6 +143,9 @@
                         android:layout_height="wrap_content"
                         android:text="★★★★★\nRaka W.: Timnya profesional dan komunikatif, sangat membantu bisnis saya.\n\n★★★★☆\nDewi N.: Strategi marketingnya kreatif dan efektif, hasilnya kelihatan!"
                         android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="sans-serif"
                         android:textColor="#555" />
 
@@ -145,6 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
                         android:backgroundTint="@color/white"
                         android:gravity="start"
                         android:paddingStart="0dp"
