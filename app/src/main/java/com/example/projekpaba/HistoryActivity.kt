@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,15 @@ class HistoryActivity : AppCompatActivity() {
         // Load history from Firebase
         loadHistoryFromFirebase()
 
+        //inisialisasi variabel button
+        val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
+        val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
+        val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
+        val btnProfile = findViewById<ImageView>(R.id.ivProfileBawah)
+
+        // Ambil username dari intent
+        val username = intent.getStringExtra("username")
+
         // Back button functionality
         val btnBackToHome = findViewById<ImageButton>(R.id.btnBackToHome)
         btnBackToHome.setOnClickListener {
@@ -35,6 +45,34 @@ class HistoryActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK // bersihkan dari tumpukan activity sebelumnya
             startActivity(intent)
             finish() // Menutup HistoryActivity
+        }
+
+        //button dashboard
+        btnDasboard.setOnClickListener {
+            val intent = Intent(this, dashboardPage::class.java)
+            intent.putExtra("username", username) // Kirim username ke dashboard
+            startActivity(intent)
+            finish()
+        }
+        //button recommendation
+        btnRecommendation.setOnClickListener {
+            val intent = Intent(this, RecommendationActivity::class.java)
+            startActivity(intent)
+        }
+        //button transaksi
+        btnTransaction.setOnClickListener {
+            val intent = Intent(this, TransactionActivity::class.java)
+            intent.putExtra("username", username) // Kirim username ke transaksi
+            startActivity(intent)
+            finish()
+        }
+
+        //button profile
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, activityProfile::class.java)
+            intent.putExtra("username", username) // Kirim username ke profil
+            startActivity(intent)
+            finish()
         }
     }
 
