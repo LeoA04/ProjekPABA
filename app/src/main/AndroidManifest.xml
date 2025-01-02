@@ -16,6 +16,10 @@
         android:theme="@style/Theme.ProjekPABA"
         tools:targetApi="31">
         <activity
+
+            android:name=".voucher"
+            android:exported="false" />
+        <activity
             android:name=".adapterRecViewDashboard"
             android:exported="false" />
         <activity

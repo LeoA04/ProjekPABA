@@ -11,30 +11,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004"
+        tools:layout_editor_absoluteX="0dp"
+        >
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="horizontal"
+            android:background="@drawable/rounded"
+            android:backgroundTint="#BECDDA"
             android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/ivProfile"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/baseline_person_24"
-                android:scaleType="centerCrop"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:background="@drawable/baseline_circle_24" />
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/baseline_circle_24"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_person_24" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -42,63 +50,62 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Selamat Datang 👋"
-                    android:textSize="14sp"
-                    android:textColor="#888888" />
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama"
+                    android:textColor="#000000"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000" />
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
-
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="8dp"
             android:text="Fitur"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:textColor="#000000"
-            android:layout_marginBottom="8dp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/voucher_section"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp"
                 android:background="@drawable/rounded"
-                android:layout_marginEnd="8dp">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/baseline_discount_24"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/baseline_discount_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Vouchers"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -106,54 +113,54 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
+                android:background="@drawable/rounded"
                 android:gravity="center"
-                android:padding="16dp"
-                android:background="@drawable/rounded">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <ImageView
                     android:id="@+id/ivHistory"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/baseline_history_24"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/baseline_history_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="History"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Mungkin anda suka"
+                android:textColor="#000000"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#000000" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/btnSeeRecommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="130dp"
+                android:layout_marginLeft="200dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
-                android:textSize="12sp"
                 android:text="Lihat Semua"
                 android:textColor="#000000"
-                android:layout_marginLeft="200dp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Recommendations RecyclerView -->
@@ -161,8 +168,8 @@
             android:id="@+id/rvRecommendations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUsername" />
