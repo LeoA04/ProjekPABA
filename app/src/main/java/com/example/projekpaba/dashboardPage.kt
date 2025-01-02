@@ -120,7 +120,8 @@ class dashboardPage : AppCompatActivity() {
                     val agency = hashMapOf(
                         "nama" to (document.getString("nama") ?: ""),
                         "lokasi" to (document.getString("lokasi") ?: ""),
-                        "foto" to (document.getString("foto") ?: "")
+                        "foto" to (document.getString("foto") ?: ""),
+                        "deskripsi" to (document.getString("deskripsi") ?: "")
                     )
                     recommendations.add(agency)
                 }

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class TransactionAdapter(
-    private val selectedService: HashMap<String, String>, // Only one selected service
-    private val onRemoveItem: () -> Unit // Callback for delete action
+    private val selectedServices: MutableList<HashMap<String, String>>, // List of services
+    private val onRemoveItem: (Int) -> Unit // Callback for delete action with position
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,18 +28,18 @@ class TransactionAdapter(
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = 1 // Only one item, as it's the selected service
+    override fun getItemCount(): Int = selectedServices.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // Set data to views
-        holder.serviceName.text = selectedService["namaService"]
-        holder.companyName.text = selectedService["namaPerusahaan"]
-        holder.servicePrice.text = "Price: ${selectedService["harga"]}"
-        Picasso.get().load(selectedService["foto"]).into(holder.imgService)
+        val service = selectedServices[position]
+        holder.serviceName.text = service["namaService"]
+        holder.companyName.text = service["namaPerusahaan"]
+        holder.servicePrice.text = "Price: ${service["harga"]}"
+        Picasso.get().load(service["foto"]).into(holder.imgService)
 
         // Delete button action
         holder.deleteButton.setOnClickListener {
-            onRemoveItem() // Trigger callback for deletion
+            onRemoveItem(position) // Trigger callback with position
         }
     }
 }
