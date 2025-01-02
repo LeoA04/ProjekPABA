@@ -50,6 +50,17 @@
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/profile_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat datang di aplikasi kami! Nikmati berbagai fitur menarik untuk membantu Anda dalam aktivitas sehari-hari. Jangan lupa untuk selalu eksplorasi dan menemukan layanan terbaik yang kami tawarkan."
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"
+            android:lineSpacingExtra="4dp"
+            android:textAlignment="center" />
     </LinearLayout>
 
     <!-- Options Section -->
@@ -64,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
 
-        <!-- Help Center -->
+        <!-- History Check -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,51 +86,10 @@
             android:backgroundTint="#194A7A">
 
             <ImageView
-                android:id="@+id/icon_help_center"
+                android:id="@+id/IvHistory"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/baseline_help_center_24" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="8dp">
-
-                <TextView
-                    android:id="@+id/help_center_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Help Center"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
-
-                <TextView
-                    android:id="@+id/help_center_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Find the best answer to your question"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Contact Us -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/baseline_rectangle_24"
-            android:padding="16dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="#194A7A">
-
-            <ImageView
-                android:id="@+id/icon_contact_us"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_contact_phone_24" />
+                android:src="@drawable/baseline_history_24" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,7 +101,7 @@
                     android:id="@+id/contact_us_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact Us"
+                    android:text="History"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF" />
@@ -140,7 +110,7 @@
                     android:id="@+id/contact_us_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Get help from our Customer Services"
+                    android:text="Check your history transaction here"
                     android:textSize="14sp"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
@@ -201,7 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_home_24"
-                android:layout_marginStart="26dp"
+                android:layout_marginStart="22dp"
                 app:layout_constraintStart_toStartOf="@id/btnDashboard"
                 app:layout_constraintTop_toTopOf="@id/btnDashboard"
                 app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
@@ -213,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:layout_marginStart="12dp"
-                android:text="Dashboard"
+                android:text="Beranda"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
@@ -231,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_recommend_24"
-                    android:layout_marginStart="130dp"
+                    android:layout_marginStart="120dp"
                     app:layout_constraintStart_toStartOf="@id/btnProfile"
                     app:layout_constraintTop_toTopOf="@id/btnProfile"
                     app:layout_constraintBottom_toBottomOf="@id/btnProfile"
@@ -243,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
                     android:layout_marginStart="95dp"
-                    android:text="Recommendation"
+                    android:text="Rekomendasi"
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="@id/btnProfile"
@@ -273,7 +243,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="310dp"
                         android:layout_marginTop="22dp"
-                        android:text="Profile"
+                        android:text="Profil"
                         android:textColor="@color/white"
                         android:textSize="12dp"
                         app:layout_constraintBottom_toBottomOf="@id/btnProfile"
@@ -282,37 +252,38 @@
                         app:layout_constraintTop_toTopOf="@id/btnProfile" />
 
                 </FrameLayout>
-                <FrameLayout
-                    android:id="@+id/btnTransaction"
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/btnTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivTransaction"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_shopping_cart_24"
+                    android:layout_marginStart="230dp"
+                    app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                    app:layout_constraintTop_toTopOf="@id/btnTransaction"
+                    app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                    app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                    android:scaleType="center"/>
 
-                    <ImageView
-                        android:id="@+id/ivTransaction"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/baseline_shopping_cart_24"
-                        android:layout_marginStart="235dp"
-                        app:layout_constraintStart_toStartOf="@id/btnTransaction"
-                        app:layout_constraintTop_toTopOf="@id/btnTransaction"
-                        app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
-                        app:layout_constraintEnd_toEndOf="@id/btnTransaction"
-                        android:scaleType="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginStart="215dp"
-                        android:text="Transaction"
-                        android:textColor="@color/white"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
-                        app:layout_constraintEnd_toEndOf="@id/btnTransaction"
-                        app:layout_constraintStart_toStartOf="@id/btnTransaction"
-                        app:layout_constraintTop_toTopOf="@id/btnTransaction" />
-
-                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginStart="215dp"
+                    android:text="Transaksi"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                    app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                    app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                    app:layout_constraintTop_toTopOf="@id/btnTransaction" />
             </FrameLayout>
         </FrameLayout>
     </FrameLayout>

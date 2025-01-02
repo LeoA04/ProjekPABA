@@ -16,6 +16,12 @@
         android:theme="@style/Theme.ProjekPABA"
         tools:targetApi="31">
         <activity
+            android:name=".adapterRecViewDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryAdapter"
+            android:exported="false" />
+        <activity
             android:name=".activityLogin"
             android:exported="false" />
         <activity

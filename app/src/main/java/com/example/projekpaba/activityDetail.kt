@@ -39,6 +39,31 @@ class activityDetail : AppCompatActivity() {
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
         val btnAddToCart = findViewById<TextView>(R.id.textOrder)
+        val btnCommunication = findViewById<ImageButton>(R.id.btnCommunication)
+        val btnSeeAllReviews = findViewById<Button>(R.id.btnSeeAllReviews)
+        val btnBackToRecommend = findViewById<ImageButton>(R.id.btnBackToRecommend)
+
+        // Button communication
+        btnCommunication.setOnClickListener {
+            val dataIntentDetail = intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)
+            if (dataIntentDetail != null) {
+                val intent = Intent(this, CommunicationActivity::class.java)
+                intent.putExtra("gambarMarketingAgency", dataIntentDetail.foto)
+                intent.putExtra("namaMarketingAgency", dataIntentDetail.nama)
+                startActivity(intent)
+            }
+        }
+
+        // Button see all reviews
+        btnSeeAllReviews.setOnClickListener {
+            val intent = Intent(this, Reviews::class.java)
+            startActivity(intent)
+        }
+
+        // Button back to recommendation page
+        btnBackToRecommend.setOnClickListener {
+            finish()
+        }
 
         val dataIntentDetail =
             intent.getParcelableExtra<agencyMarketing>("kirimData", agencyMarketing::class.java)

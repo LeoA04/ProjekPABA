@@ -1,46 +1,69 @@
 package com.example.projekpaba
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 
 class dashboardPage : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var db: FirebaseFirestore
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard_page)
 
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        db = FirebaseFirestore.getInstance()
 
-        // Ambil username dari intent
-        val username = sharedPreferences.getString("username", null)
-
+        val username = sharedPreferences.getString("username", "Guest")
         val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
         val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
         val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
 
-        // tampilkan nama user di dahsboard
+        // set nama user di dashboard
         val tvUsername = findViewById<TextView>(R.id.tvUsername)
-        val db = FirebaseFirestore.getInstance()
+        tvUsername.text = "$username"
+
+        // Load recommendations
+        loadRecommendations()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val _historySection = findViewById<ImageView>(R.id.ivHistory)
+        _historySection.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            intent.putExtra("username", username) // Kirim username ke transaksi
+            startActivity(intent)
+            finish()
+        }
+
+        if (username != null) {
+            db.collection("users")
+                .document(username)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val name = document.getString("username")
+                        tvUsername.text = "$name!"
+                    } else {
+                        tvUsername.text = "User tidak ditemukan"
+                    }
+                }
+        }
+
         //button dashboard
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
@@ -80,31 +103,47 @@ class dashboardPage : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val _historySection = findViewById<ImageView>(R.id.ivHistory)
-        _historySection.setOnClickListener {
-            val intent = Intent(this, HistoryActivity::class.java)
-            intent.putExtra("username", username) // Kirim username ke transaksi
-            startActivity(intent)
-            finish()
-        }
+    }
 
-        if (username != null) {
-            db.collection("users")
-                .document(username)
-                .get()
-                .addOnSuccessListener { document ->
-                    if (document.exists()) {
-                        val name = document.getString("username")
-                        tvUsername.text = "$name!"
-                    } else {
-                        tvUsername.text = "User tidak ditemukan"
+    private fun loadRecommendations() {
+        val recommendations = mutableListOf<HashMap<String, String>>()
+        val rvRecommendations = findViewById<RecyclerView>(R.id.rvRecommendations)
+
+        rvRecommendations.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        db.collection("marketingAgency")
+            .limit(3) // Limit to 3 recommendations
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val agency = hashMapOf(
+                        "nama" to (document.getString("nama") ?: ""),
+                        "lokasi" to (document.getString("lokasi") ?: ""),
+                        "foto" to (document.getString("foto") ?: "")
+                    )
+                    recommendations.add(agency)
+                }
+
+                val adapter = adapterRecViewDashboard(recommendations)
+                rvRecommendations.adapter = adapter
+
+                // Set click callback
+                adapter.setOnItemClickCallback(object : adapterRecViewDashboard.OnItemClickCallback {
+                    override fun onItemClicked(data: HashMap<String, String>) {
+                        // Convert to agencyMarketing object and send it to activityDetail
+                        val agencyMarketingData = agencyMarketing(
+                            foto = data["foto"] ?: "",
+                            nama = data["nama"] ?: "",
+                            lokasi = data["lokasi"] ?: "",
+                            deskripsi = data["deskripsi"] ?: "",
+                            harga = "" // Tambahkan harga kosong jika tidak diperlukan
+                        )
+                        val intent = Intent(this@dashboardPage, activityDetail::class.java)
+                        intent.putExtra("kirimData", agencyMarketingData)
+                        startActivity(intent)
                     }
-                }
-                .addOnFailureListener { e ->
-                    tvUsername.text = "Error: ${e.message}"
-                }
-        } else {
-            tvUsername.text = "Tidak ada data user"
-        }
+                })
+            }
     }
 }
