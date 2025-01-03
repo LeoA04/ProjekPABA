@@ -31,6 +31,7 @@
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:id="@+id/rvTransactionServices"
         android:layout_width="match_parent"
         android:layout_height="0dp"
