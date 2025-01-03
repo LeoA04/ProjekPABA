@@ -86,6 +86,10 @@ class activityDetail : AppCompatActivity() {
         val selectedServiceName = service.selectedItem?.toString()
         val db = FirebaseFirestore.getInstance()
 
+        val parts = selectedServiceName?.split(" - Rp. ") // Pisahkan nama dan harga
+        val selectedServiceNama = parts?.getOrNull(0) // Nama jasa
+        val selectedServicePrice = parts?.getOrNull(1) // Harga jasa
+
         db.collection("service")
             .whereEqualTo("namaPerusahaan", item.nama)
             .whereEqualTo("namaService", selectedServiceName)
@@ -94,7 +98,8 @@ class activityDetail : AppCompatActivity() {
                 val selectedServiceData = hashMapOf(
                     "namaService" to selectedServiceName,
                     "namaPerusahaan" to item.nama,
-                    "foto" to item.foto
+                    "foto" to item.foto,
+                    "harga" to selectedServicePrice // Masukkan harga langsung dari spinner
                 )
 
                 // fetch harga
@@ -149,8 +154,8 @@ class activityDetail : AppCompatActivity() {
                 }
                 val services = mutableListOf<String>()
                 for (document in querySnapshot) {
-                    val serviceName = document.getString("namaService")
-                    val servicePrice = document.getString("harga")
+                    val serviceName = document.getString("namaService") ?: "Unknown Service"
+                    val servicePrice = document.getString("harga") ?: "0"
                     if (serviceName != null) {
                         services.add("$serviceName - Rp. $servicePrice")
                     }
