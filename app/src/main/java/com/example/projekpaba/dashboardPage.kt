@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -45,7 +46,14 @@ class dashboardPage : AppCompatActivity() {
         val _historySection = findViewById<ImageView>(R.id.ivHistory)
         _historySection.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
-            intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("username", username)
+            startActivity(intent)
+            finish()
+        }
+        val _voucherSection = findViewById<LinearLayout>(R.id.voucher_section)
+        _voucherSection.setOnClickListener{
+            val intent = Intent(this, voucher::class.java)
+            intent.putExtra("username", username)
             startActivity(intent)
             finish()
         }
