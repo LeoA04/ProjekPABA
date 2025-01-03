@@ -87,26 +87,26 @@ class activityDetail : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         val parts = selectedServiceName?.split(" - Rp. ") // Pisahkan nama dan harga
-        val selectedServiceNama = parts?.getOrNull(0) // Nama jasa
-        val selectedServicePrice = parts?.getOrNull(1) // Harga jasa
+        val selectedServiceNama = parts?.get(0) ?: "Unknown Service" // Nama jasa
+        val selectedServicePrice = if (parts?.size ?: 0 > 1) parts?.get(1) else "0" // Harga
 
         db.collection("service")
             .whereEqualTo("namaPerusahaan", item.nama)
-            .whereEqualTo("namaService", selectedServiceName)
+            .whereEqualTo("namaService", selectedServiceNama)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 val selectedServiceData = hashMapOf(
-                    "namaService" to selectedServiceName,
+                    "namaService" to selectedServiceNama,
                     "namaPerusahaan" to item.nama,
                     "foto" to item.foto,
                     "harga" to selectedServicePrice // Masukkan harga langsung dari spinner
                 )
 
-                // fetch harga
-                for (document in querySnapshot) {
-                    val price = document.getString("harga") ?: "N/A"
-                    selectedServiceData["harga"] = price
-                }
+//                // fetch harga
+//                for (document in querySnapshot) {
+//                    val price = document.getString("harga") ?: "N/A"
+//                    selectedServiceData["harga"] = price
+//                }
 
                 // menyalurkan data ke transaction activity
                 val intent = Intent(this, TransactionActivity::class.java).apply {
