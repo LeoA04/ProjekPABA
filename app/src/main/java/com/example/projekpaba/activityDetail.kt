@@ -102,12 +102,6 @@ class activityDetail : AppCompatActivity() {
                     "harga" to selectedServicePrice // Masukkan harga langsung dari spinner
                 )
 
-//                // fetch harga
-//                for (document in querySnapshot) {
-//                    val price = document.getString("harga") ?: "N/A"
-//                    selectedServiceData["harga"] = price
-//                }
-
                 // menyalurkan data ke transaction activity
                 val intent = Intent(this, TransactionActivity::class.java).apply {
                     putExtra("selectedService", selectedServiceData)
