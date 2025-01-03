@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ProjekPABA</string>
+    <string name="brandingKu">
+        Brandingku is a trusted platform created to connect marketing agencies with SMEs,
+        helping agencies expand their market reach and enabling SMEs to grow their businesses.
+    </string>
+    <string name="value">
+        Powering Agencies to Broader Horizons, Driving SME Success!
+    </string>
 </resources>
