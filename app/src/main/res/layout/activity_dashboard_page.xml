@@ -290,7 +290,7 @@
                 android:id="@+id/ivTransaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="240dp"
+                android:layout_marginStart="220dp"
                 android:scaleType="center"
                 android:src="@drawable/baseline_shopping_cart_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
@@ -301,7 +301,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="219dp"
+                android:layout_marginStart="200dp"
                 android:layout_marginTop="22dp"
                 android:text="Transaction"
                 android:textColor="@color/white"
@@ -322,7 +322,7 @@
                 android:id="@+id/ivProfileBawah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="323dp"
+                android:layout_marginStart="280dp"
                 android:scaleType="center"
                 android:src="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnProfile"
@@ -333,9 +333,41 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="320dp"
+                android:layout_marginStart="275dp"
                 android:layout_marginTop="22dp"
                 android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivTransactionGlobal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="323dp"
+                android:scaleType="center"
+                android:src="@drawable/baseline_shopping_cart_24"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="22dp"
+                android:text="Global"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="@id/btnProfile"

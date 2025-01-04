@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class TransactionActivity : AppCompatActivity() {
+class TransactionActivityGlobal : AppCompatActivity() {
 
     private lateinit var rvTransaction: RecyclerView
     private val selectedServices = mutableListOf<HashMap<String, String>>() // list bisa memilih lebih dari 1
@@ -149,14 +149,14 @@ class TransactionActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = gson.toJson(selectedServices)
-        editor.putString("cart_$username", json) // hubungkan cart dengan username
+        editor.putString("cart_", json) // hubungkan cart dengan username
         editor.apply()
     }
 
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
+        val json = sharedPreferences.getString("cart_", null) // load cart sesuai username
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {
