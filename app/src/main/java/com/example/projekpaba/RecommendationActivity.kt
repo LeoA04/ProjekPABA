@@ -33,7 +33,6 @@ class RecommendationActivity : AppCompatActivity() {
 
         // Ambil username dari intent
         val username = intent.getStringExtra("username")
-        val email = intent.getStringExtra("email")
 
         //memanggil fungsi yg sdh dibuat di bawah
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
@@ -58,14 +57,12 @@ class RecommendationActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke halaman profil
-            intent.putExtra("email", email)
             startActivity(intent)
         }
         //button dashboard
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -78,7 +75,6 @@ class RecommendationActivity : AppCompatActivity() {
         btnTransaction.setOnClickListener {
             val intent = Intent(this, TransactionActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke transaksi
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -87,7 +83,6 @@ class RecommendationActivity : AppCompatActivity() {
         btnProfile.setOnClickListener {
             val intent = Intent(this, activityProfile::class.java)
             intent.putExtra("username", username) // Kirim username ke profil
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }

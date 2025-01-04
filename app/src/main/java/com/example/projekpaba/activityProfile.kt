@@ -29,7 +29,6 @@ class activityProfile : AppCompatActivity() {
 
         // Ambil username dari intent
         val username = intent.getStringExtra("username")
-        val email = intent.getStringExtra("email")
 
         if (username != null) {
             // Ambil data user dari Firestore
@@ -40,6 +39,7 @@ class activityProfile : AppCompatActivity() {
                     if (document.exists()) {
                         // Tampilkan data user di profil
                         val name = document.getString("username") // Ambil nama user
+                        val email = document.getString("email") // Ambil email user
                         tvProfileName.text = name
                         tvProfileEmail.text = email
                     } else {
@@ -58,7 +58,6 @@ class activityProfile : AppCompatActivity() {
         btnBack.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
-            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -67,7 +66,6 @@ class activityProfile : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
-            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -76,7 +74,6 @@ class activityProfile : AppCompatActivity() {
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
-            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -107,7 +104,6 @@ class activityProfile : AppCompatActivity() {
         _historySection.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke transaksi
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }

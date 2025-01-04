@@ -37,7 +37,6 @@ class HistoryActivity : AppCompatActivity() {
 
         // Ambil username dari intent
         val username = intent.getStringExtra("username")
-        val email = intent.getStringExtra("email")
 
         // Back button functionality
         val btnBackToHome = findViewById<ImageButton>(R.id.btnBackToHome)
@@ -52,7 +51,6 @@ class HistoryActivity : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -65,7 +63,6 @@ class HistoryActivity : AppCompatActivity() {
         btnTransaction.setOnClickListener {
             val intent = Intent(this, TransactionActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke transaksi
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -74,7 +71,6 @@ class HistoryActivity : AppCompatActivity() {
         btnProfile.setOnClickListener {
             val intent = Intent(this, activityProfile::class.java)
             intent.putExtra("username", username) // Kirim username ke profil
-            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
