@@ -136,6 +136,7 @@ class TransactionActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    //lama
 //    private fun saveCartData() {
 //        val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
 //        val editor = sharedPreferences.edit()
@@ -145,12 +146,13 @@ class TransactionActivity : AppCompatActivity() {
 //        editor.apply()
 //    }
 
+//    //baru
     private fun saveCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = gson.toJson(selectedServices)
-        editor.putString("shared_cart", json) // Use a shared key for the cart
+        editor.putString("shared_cart", json) // hubungkan cart dengan username
         editor.apply()
     }
 
@@ -160,10 +162,23 @@ class TransactionActivity : AppCompatActivity() {
         return sharedPreferences.getString("username", "Guest") ?: "Guest"
     }
 
+    //lama
+//    private fun loadCartData() {
+//        val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
+//        val gson = Gson()
+//        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
+//        val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
+//        val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
+//        if (cartData != null) {
+//            selectedServices.addAll(cartData)
+//        }
+//    }
+
+    //baru
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("shared_cart", null) // Use the shared key
+        val json = sharedPreferences.getString("shared_cart", null) // load cart sesuai username
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {
