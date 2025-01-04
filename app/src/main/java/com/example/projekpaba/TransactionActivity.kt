@@ -138,21 +138,28 @@ class TransactionActivity : AppCompatActivity() {
 
     private fun saveCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
         val gson = Gson()
-        val json = gson.toJson(selectedServices)
-        editor.putString("cart_$username", json) // hubungkan cart dengan username
+        val existingJson = sharedPreferences.getString("allCarts", null)
+        val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
+        val existingCart: MutableList<HashMap<String, String>>? = gson.fromJson(existingJson, type)
+
+        val combinedCart = existingCart ?: mutableListOf()
+        combinedCart.addAll(selectedServices) // gabungkan data
+
+        val editor = sharedPreferences.edit()
+        val newJson = gson.toJson(combinedCart)
+        editor.putString("allCarts", newJson)
         editor.apply()
     }
 
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
+        val json = sharedPreferences.getString("allCarts", null) // load datanya
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {
-            selectedServices.addAll(cartData)
+            selectedServices.addAll(cartData) // tambah semua data ke list
         }
     }
 
