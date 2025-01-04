@@ -136,19 +136,34 @@ class TransactionActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+//    private fun saveCartData() {
+//        val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//        val gson = Gson()
+//        val json = gson.toJson(selectedServices)
+//        editor.putString("cart_$username", json) // hubungkan cart dengan username
+//        editor.apply()
+//    }
+
     private fun saveCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = gson.toJson(selectedServices)
-        editor.putString("cart_$username", json) // hubungkan cart dengan username
+        editor.putString("shared_cart", json) // Use a shared key for the cart
         editor.apply()
+    }
+
+
+    private fun getUsernameFromPreferences(): String {
+        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        return sharedPreferences.getString("username", "Guest") ?: "Guest"
     }
 
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
+        val json = sharedPreferences.getString("shared_cart", null) // Use the shared key
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {
@@ -156,8 +171,4 @@ class TransactionActivity : AppCompatActivity() {
         }
     }
 
-    private fun getUsernameFromPreferences(): String {
-        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-        return sharedPreferences.getString("username", "Guest") ?: "Guest"
-    }
 }
