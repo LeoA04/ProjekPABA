@@ -17,6 +17,7 @@ class activityRegister : AppCompatActivity() {
     private lateinit var usernameField: EditText
     private lateinit var passwordField: EditText
     private lateinit var registerButton: Button
+    private lateinit var emailField: EditText
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,7 @@ class activityRegister : AppCompatActivity() {
 
         usernameField = findViewById(R.id.username)
         passwordField = findViewById(R.id.password)
+        emailField = findViewById(R.id.email)
         registerButton = findViewById(R.id.btnDaftar)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -44,12 +46,14 @@ class activityRegister : AppCompatActivity() {
         registerButton.setOnClickListener {
             val username = usernameField.text.toString()
             val password = passwordField.text.toString()
+            val email = emailField.text.toString()
 
-            if (username.isNotEmpty() && password.isNotEmpty()) {
+            if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
                 // Simpan data pengguna ke Firestore
                 val user = hashMapOf(
                     "username" to username,
-                    "password" to password
+                    "password" to password,
+                    "email" to email
                 )
 
                 db.collection("users")
@@ -65,7 +69,7 @@ class activityRegister : AppCompatActivity() {
                         Toast.makeText(this, "Register gagal: ${it.message}", Toast.LENGTH_SHORT).show()
                     }
             } else {
-                Toast.makeText(this, "Username dan Password harus diisi!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username, Email, dan Password harus diisi!", Toast.LENGTH_SHORT).show()
             }
         }
     }

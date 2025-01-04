@@ -24,10 +24,12 @@ class activityProfile : AppCompatActivity() {
         }
 
         var tvProfileName = findViewById<TextView>(R.id.profile_name)
+        var tvProfileEmail = findViewById<TextView>(R.id.profile_email)
         val db = FirebaseFirestore.getInstance()
 
         // Ambil username dari intent
         val username = intent.getStringExtra("username")
+        val email = intent.getStringExtra("email")
 
         if (username != null) {
             // Ambil data user dari Firestore
@@ -39,6 +41,7 @@ class activityProfile : AppCompatActivity() {
                         // Tampilkan data user di profil
                         val name = document.getString("username") // Ambil nama user
                         tvProfileName.text = name
+                        tvProfileEmail.text = email
                     } else {
                         tvProfileName.text = "User tidak ditemukan"
                     }
