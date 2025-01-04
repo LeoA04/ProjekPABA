@@ -170,6 +170,13 @@
             android:textColor="#194A7A"
             android:layout_marginStart="4dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLoginGuest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login as Guest"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
