@@ -71,6 +71,7 @@ class RecommendationActivity : AppCompatActivity() {
             val intent = Intent(this, RecommendationActivity::class.java)
             startActivity(intent)
         }
+
         //button transaksi
         btnTransaction.setOnClickListener {
             val intent = Intent(this, TransactionActivity::class.java)

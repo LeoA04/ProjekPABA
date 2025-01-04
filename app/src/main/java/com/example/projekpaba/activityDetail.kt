@@ -37,6 +37,7 @@ class activityDetail : AppCompatActivity() {
         val _tvAgencyLocation = findViewById<TextView>(R.id.tvAgencyLocation)
         val _tvAboutUs = findViewById<TextView>(R.id.tvIsiAboutUs)
         val btnAddToCart = findViewById<TextView>(R.id.textOrder)
+        val btnAddGlobal = findViewById<TextView>(R.id.textOrderGlobal)
         val btnCommunication = findViewById<ImageButton>(R.id.btnCommunication)
         val btnSeeAllReviews = findViewById<Button>(R.id.btnSeeAllReviews)
         val btnBackToRecommend = findViewById<ImageButton>(R.id.btnBackToRecommend)
@@ -80,6 +81,11 @@ class activityDetail : AppCompatActivity() {
                 addToCart(dataIntentDetail)
             }
         }
+        btnAddGlobal.setOnClickListener {
+            if (dataIntentDetail != null) {
+                addToCartGlobal(dataIntentDetail)
+            }
+        }
     }
 
     private fun addToCart(item: agencyMarketing) {
@@ -104,6 +110,37 @@ class activityDetail : AppCompatActivity() {
 
                 // menyalurkan data ke transaction activity
                 val intent = Intent(this, TransactionActivity::class.java).apply {
+                    putExtra("selectedService", selectedServiceData)
+                }
+                startActivity(intent)
+            }
+            .addOnFailureListener {
+                Log.e("FetchServiceError", "Error fetching service details: ${it.message}")
+            }
+    }
+
+    private fun addToCartGlobal(item: agencyMarketing) {
+        val selectedServiceName = service.selectedItem?.toString()
+        val db = FirebaseFirestore.getInstance()
+
+        val parts = selectedServiceName?.split(" - Rp. ") // Pisahkan nama dan harga
+        val selectedServiceNama = parts?.get(0) ?: "Unknown Service" // Nama jasa
+        val selectedServicePrice = if (parts?.size ?: 0 > 1) parts?.get(1) else "0" // Harga
+
+        db.collection("service")
+            .whereEqualTo("namaPerusahaan", item.nama)
+            .whereEqualTo("namaService", selectedServiceNama)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val selectedServiceData = hashMapOf(
+                    "namaService" to selectedServiceNama,
+                    "namaPerusahaan" to item.nama,
+                    "foto" to item.foto,
+                    "harga" to selectedServicePrice // Masukkan harga langsung dari spinner
+                )
+
+                // menyalurkan data ke transaction activity
+                val intent = Intent(this, TransactionActivityGlobal::class.java).apply {
                     putExtra("selectedService", selectedServiceData)
                 }
                 startActivity(intent)

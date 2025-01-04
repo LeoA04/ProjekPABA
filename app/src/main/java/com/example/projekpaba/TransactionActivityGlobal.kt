@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class TransactionActivity : AppCompatActivity() {
+class TransactionActivityGlobal : AppCompatActivity() {
 
     private lateinit var rvTransaction: RecyclerView
     private val selectedServices = mutableListOf<HashMap<String, String>>() // list bisa memilih lebih dari 1
@@ -33,6 +33,8 @@ class TransactionActivity : AppCompatActivity() {
 
         // load cart
         loadCartData()
+
+        val email = intent.getStringExtra("email")
 
         val serviceData = intent.getSerializableExtra("selectedService") as? HashMap<String, String>
         if (serviceData != null) {
@@ -56,6 +58,7 @@ class TransactionActivity : AppCompatActivity() {
         btnBackToDetail.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username)
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -72,6 +75,7 @@ class TransactionActivity : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -80,6 +84,7 @@ class TransactionActivity : AppCompatActivity() {
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -102,6 +107,7 @@ class TransactionActivity : AppCompatActivity() {
         btnProfile.setOnClickListener {
             val intent = Intent(this, activityProfile::class.java)
             intent.putExtra("username", username) // Kirim username ke profil
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -143,14 +149,14 @@ class TransactionActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = gson.toJson(selectedServices)
-        editor.putString("cart_$username", json) // hubungkan cart dengan username
+        editor.putString("cart_", json) // hubungkan cart dengan username
         editor.apply()
     }
 
     private fun loadCartData() {
         val sharedPreferences = getSharedPreferences("CartPrefs", MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString("cart_$username", null) // load cart sesuai username
+        val json = sharedPreferences.getString("cart_", null) // load cart sesuai username
         val type = object : TypeToken<MutableList<HashMap<String, String>>>() {}.type
         val cartData: MutableList<HashMap<String, String>>? = gson.fromJson(json, type)
         if (cartData != null) {

@@ -31,6 +31,9 @@
             android:name=".activityRegister"
             android:exported="false" />
         <activity
+            android:name=".TransactionActivityGlobal"
+            android:exported="false" />
+        <activity
             android:name=".dashboardPage"
             android:exported="false" />
         <activity

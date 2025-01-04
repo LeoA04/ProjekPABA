@@ -151,10 +151,10 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/baseline_rectangle_24"
         android:backgroundTint="#194A7A"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,7 +162,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.971">
 
         <FrameLayout
             android:id="@+id/btnDashboard"
@@ -172,20 +172,20 @@
             <ImageView
                 android:id="@+id/ivDashboard"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="28dp"
+                android:scaleType="center"
                 android:src="@drawable/baseline_home_24"
-                android:layout_marginStart="22dp"
-                app:layout_constraintStart_toStartOf="@id/btnDashboard"
-                app:layout_constraintTop_toTopOf="@id/btnDashboard"
                 app:layout_constraintBottom_toBottomOf="@id/btnDashboard"
                 app:layout_constraintEnd_toEndOf="@id/btnDashboard"
-                android:scaleType="center"/>
+                app:layout_constraintStart_toStartOf="@id/btnDashboard"
+                app:layout_constraintTop_toTopOf="@id/btnDashboard" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="22dp"
-                android:layout_marginStart="8dp"
                 android:text="Dashboard"
                 android:textColor="@color/white"
                 android:textSize="12dp"
@@ -194,100 +194,134 @@
                 app:layout_constraintStart_toStartOf="@id/btnDashboard"
                 app:layout_constraintTop_toTopOf="@id/btnDashboard" />
 
-            <FrameLayout
-                android:id="@+id/btnRecommendation"
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnRecommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivRecommendation"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="132dp"
+                android:scaleType="center"
+                android:src="@drawable/baseline_recommend_24"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
 
-                <ImageView
-                    android:id="@+id/ivRecommendation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_recommend_24"
-                    android:layout_marginStart="120dp"
-                    app:layout_constraintStart_toStartOf="@id/btnProfile"
-                    app:layout_constraintTop_toTopOf="@id/btnProfile"
-                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                    android:scaleType="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginStart="85dp"
-                    android:text="Marketing Agency"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                    app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                    app:layout_constraintStart_toStartOf="@id/btnProfile"
-                    app:layout_constraintTop_toTopOf="@id/btnProfile" />
-
-                <FrameLayout
-                    android:id="@+id/btnProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/ivProfile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="315dp"
-                        android:scaleType="center"
-                        android:src="@drawable/baseline_person_24"
-                        app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                        app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                        app:layout_constraintStart_toStartOf="@id/btnProfile"
-                        app:layout_constraintTop_toTopOf="@id/btnProfile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="310dp"
-                        android:layout_marginTop="22dp"
-                        android:text="Profile"
-                        android:textColor="@color/white"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@id/btnProfile"
-                        app:layout_constraintEnd_toEndOf="@id/btnProfile"
-                        app:layout_constraintStart_toStartOf="@id/btnProfile"
-                        app:layout_constraintTop_toTopOf="@id/btnProfile" />
-
-                </FrameLayout>
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/btnTransaction"
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="22dp"
+                android:text="Marketing Agency"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
 
-                <ImageView
-                    android:id="@+id/ivTransaction"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_shopping_cart_24"
-                    android:layout_marginStart="230dp"
-                    app:layout_constraintStart_toStartOf="@id/btnTransaction"
-                    app:layout_constraintTop_toTopOf="@id/btnTransaction"
-                    app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
-                    app:layout_constraintEnd_toEndOf="@id/btnTransaction"
-                    android:scaleType="center"/>
+        </FrameLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginStart="210dp"
-                    android:text="Transaction"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
-                    app:layout_constraintEnd_toEndOf="@id/btnTransaction"
-                    app:layout_constraintStart_toStartOf="@id/btnTransaction"
-                    app:layout_constraintTop_toTopOf="@id/btnTransaction" />
-            </FrameLayout>
+        <FrameLayout
+            android:id="@+id/btnTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="220dp"
+                android:scaleType="center"
+                android:src="@drawable/baseline_shopping_cart_24"
+                app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                app:layout_constraintTop_toTopOf="@id/btnTransaction" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="22dp"
+                android:text="Transaction"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnTransaction"
+                app:layout_constraintEnd_toEndOf="@id/btnTransaction"
+                app:layout_constraintStart_toStartOf="@id/btnTransaction"
+                app:layout_constraintTop_toTopOf="@id/btnTransaction" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivProfileBawah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="280dp"
+                android:scaleType="center"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="275dp"
+                android:layout_marginTop="22dp"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivTransactionGlobal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="323dp"
+                android:scaleType="center"
+                android:src="@drawable/baseline_shopping_cart_24"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="22dp"
+                android:text="Global"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnProfile"
+                app:layout_constraintEnd_toEndOf="@id/btnProfile"
+                app:layout_constraintStart_toStartOf="@id/btnProfile"
+                app:layout_constraintTop_toTopOf="@id/btnProfile" />
+
         </FrameLayout>
     </FrameLayout>
 

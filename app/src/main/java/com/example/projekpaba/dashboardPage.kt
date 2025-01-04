@@ -111,6 +111,13 @@ class dashboardPage : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val _ivGlobal = findViewById<ImageView>(R.id.ivTransactionGlobal)
+        _ivGlobal.setOnClickListener {
+            val intent = Intent(this, TransactionActivityGlobal::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
+        }
+
     }
 
     private fun loadRecommendations() {
