@@ -29,6 +29,7 @@ class dashboardPage : AppCompatActivity() {
         val btnDasboard = findViewById<ImageView>(R.id.ivDashboard)
         val btnRecommendation = findViewById<ImageView>(R.id.ivRecommendation)
         val btnTransaction = findViewById<ImageView>(R.id.ivTransaction)
+        val email = intent.getStringExtra("email")
 
         // set nama user di dashboard
         val tvUsername = findViewById<TextView>(R.id.tvUsername)
@@ -47,6 +48,7 @@ class dashboardPage : AppCompatActivity() {
         _historySection.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             intent.putExtra("username", username)
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -54,6 +56,7 @@ class dashboardPage : AppCompatActivity() {
         _voucherSection.setOnClickListener{
             val intent = Intent(this, voucher::class.java)
             intent.putExtra("username", username)
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -76,6 +79,7 @@ class dashboardPage : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -83,6 +87,7 @@ class dashboardPage : AppCompatActivity() {
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -90,6 +95,7 @@ class dashboardPage : AppCompatActivity() {
         btnTransaction.setOnClickListener {
             val intent = Intent(this, TransactionActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -99,6 +105,7 @@ class dashboardPage : AppCompatActivity() {
         btnSeeRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
@@ -108,6 +115,7 @@ class dashboardPage : AppCompatActivity() {
         _ivProfile.setOnClickListener {
             val intent = Intent(this, activityProfile::class.java)
             intent.putExtra("username", username) // Kirim username ke halaman profil
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 

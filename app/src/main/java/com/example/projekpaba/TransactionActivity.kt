@@ -34,6 +34,8 @@ class TransactionActivity : AppCompatActivity() {
         // load cart
         loadCartData()
 
+        val email = intent.getStringExtra("email")
+
         val serviceData = intent.getSerializableExtra("selectedService") as? HashMap<String, String>
         if (serviceData != null) {
             selectedServices.add(serviceData)
@@ -56,6 +58,7 @@ class TransactionActivity : AppCompatActivity() {
         btnBackToDetail.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username)
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -72,6 +75,7 @@ class TransactionActivity : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -80,6 +84,7 @@ class TransactionActivity : AppCompatActivity() {
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -94,6 +99,7 @@ class TransactionActivity : AppCompatActivity() {
         btnProfile.setOnClickListener {
             val intent = Intent(this, activityProfile::class.java)
             intent.putExtra("username", username) // Kirim username ke profil
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }

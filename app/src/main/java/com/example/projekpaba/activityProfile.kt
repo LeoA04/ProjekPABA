@@ -58,6 +58,7 @@ class activityProfile : AppCompatActivity() {
         btnBack.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -66,6 +67,7 @@ class activityProfile : AppCompatActivity() {
         btnDasboard.setOnClickListener {
             val intent = Intent(this, dashboardPage::class.java)
             intent.putExtra("username", username) // Kirim username ke dashboard
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -74,6 +76,7 @@ class activityProfile : AppCompatActivity() {
         btnRecommendation.setOnClickListener {
             val intent = Intent(this, RecommendationActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke recommendation
+            intent.putExtra("email", email)
             startActivity(intent)
         }
 
@@ -104,6 +107,7 @@ class activityProfile : AppCompatActivity() {
         _historySection.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             intent.putExtra("username", username) // Kirim username ke transaksi
+            intent.putExtra("email", email)
             startActivity(intent)
             finish()
         }
